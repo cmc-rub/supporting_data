@@ -4,4 +4,4 @@ Supporting information for: [“Tuning the Electric Field Response of MOFs by Ro
 
 Here input files for the simulation of the three investigated systems with ``PYDLPOLY`` are provided.
 
-This paper was posted as a [preprint on chemRxiv](10.26434/chemrxiv.8153198.v1)
+This paper was posted as a [preprint on chemRxiv](https://doi.org/10.26434/chemrxiv.8153198.v1)
