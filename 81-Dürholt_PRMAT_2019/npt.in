@@ -1,0 +1,80 @@
+ # Version information for this restart file 
+ # current date 2017-10-04 04:03:54.004
+ # current working dir /gpfs5r/workgpfs/rech/drd/rdrd007/johannes/series/ZIF-8_Cl/opt
+ # Program compiled at                             Tue Oct  7 14:39:23 CEST 2014
+ # Program compiled on                                                    ada337
+ # Program compiled for                                 Linux-x86-64-gfortran.FL
+ # Source code revision number                                         svn:13632
+@SET SYSTEM NaNO2
+@SET PRINT_STEP 10
+@SET RESTART_STEP 100
+
+ &GLOBAL
+   PRINT_LEVEL  MEDIUM
+   PROJECT_NAME $SYSTEM 
+   RUN_TYPE  MD
+ &END GLOBAL
+
+ &MOTION
+   &MD
+     STEPS 40000 
+     ENSEMBLE NPT_F
+     TIMESTEP 0.5
+     TEMPERATURE 298
+     &THERMOSTAT
+       TYPE CSVR
+       &CSVR
+         TIMECON 100
+       &END CSVR
+     &END THERMOSTAT
+     &BAROSTAT
+       PRESSURE 1
+       TIMECON 1000
+     &END BAROSTAT
+     
+   &END MD
+
+  &PRINT
+    &TRAJECTORY SILENT
+      FILENAME =${SYSTEM}.pos.xyz
+      &EACH 
+        MD $PRINT_STEP
+      &END EACH
+    &END TRAJECTORY
+    &CELL SILENT
+      FILENAME =${SYSTEM}.cell
+      &EACH 
+        MD $PRINT_STEP
+      &END EACH
+    &END CELL
+    &FORCES SILENT
+      FILENAME =${SYSTEM}.frc.xyz
+      &EACH 
+        MD $PRINT_STEP
+      &END EACH
+    &END FORCES
+    &STRESS SILENT
+      FILENAME =${SYSTEM}.stress
+      &EACH 
+        MD $PRINT_STEP
+      &END EACH
+    &END STRESS
+    &VELOCITIES SILENT
+      FILENAME =${SYSTEM}.vel.xyz
+      &EACH 
+        MD $PRINT_STEP
+      &END EACH
+    &END VELOCITIES
+    &RESTART SILENT
+      FILENAME =${SYSTEM}.restart
+      &EACH 
+        MD $RESTART_STEP
+      &END EACH
+    &END RESTART
+  &END PRINT
+
+&END MOTION
+
+
+
+@INCLUDE 'force_eval.inc'
