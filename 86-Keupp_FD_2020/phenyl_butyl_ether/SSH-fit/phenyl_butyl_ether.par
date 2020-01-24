@@ -1,0 +1,151 @@
+HASH: 90d53c9a-7d42-4224-a5d8-95ef4c371bd6
+FF MOF-FF
+
+radfact         1.0
+vdw12           0.0
+vdw13           0.0
+cutoff          12.0
+coul13          1.0
+vdwtype         exp6_damped
+chargetype      gaussian
+epsrule         geometric
+coul12          1.0
+vdw14           1.0
+radrule         arithmetic
+coul14          1.0
+coreshell       False
+
+# Supported bnd potentials mm3, quartic, morse
+# mm3:     E(r) = 1/2 k(r-r0)^2*[1-2.55(r-r0)+7/12(2.55(r-r0))^2]
+#          r0 in A, k in mdyn/A
+#          mm3 k r0
+# morse:   E(r) = (1/2a^2)*k*[1-e^(-a(r-r0))] with Ed = k/2a^2
+#          r0 in A, k in mdyn/A, Ed in kcal/mol
+#          morse k r Ed
+# quartic: E(r) = 1/2 k(r-r0)^2*[1-k2(r-r0)+k3(k2(r-r0))^2]
+#          r0 in A, k in mdyn/A, k2 in A^-1 and k3 is unitlesl
+#          quartic k r0 k2 k3
+bnd_type 11
+1                      mm3      5.03233946      1.42464549           # mm3->(c4_c1h2o1@me,o2_c2@eth)|ph-O-butyl
+2                      mm3      4.36869056      1.52940834           # mm3->(c4_c2h2@me,c4_c2h2@me)|butane
+3                      mm3      6.60524665      1.39879778           # mm3->(c3_c2h1@ph,c3_c2o1@ph)|ph-O-butyl
+4                      mm3      4.42913379      1.52918220           # mm3->(c4_c1h3@me,c4_c2h2@me)|butane
+5                      mm3      4.65661277      1.51387905           # mm3->(c4_c1h2o1@me,c4_c2h2@me)|ph-O-butyl
+6                      mm3      7.08000000      1.39400000           # mm3->(c3_c2h1@ph,c3_c2h1@ph)|benzene
+7                      mm3      5.21046897      1.09938986           # mm3->(c4_c1h3@me,h1_c1@me)|butane
+8                      mm3      5.04492877      1.10209877           # mm3->(c4_c1h2o1@me,h1_c1@me)|ph-O-butyl
+9                      mm3      6.53623296      1.35479858           # mm3->(c3_c2o1@ph,o2_c2@eth)|ph-O-butyl
+10                     mm3      5.43000000      1.09400000           # mm3->(c3_c2h1@ph,h1_c1@ph)|benzene
+11                     mm3      5.08639454      1.10121283           # mm3->(c4_c2h2@me,h1_c1@me)|butane
+
+# Supported ang potentials mm3, fourier, quartic, strbnd
+# mm3:     E(a) = 1/2 k(a-a0)^2*[1-0.014(a-a0)+5.6e-5(a-a0)^2-7e-7(a-a0)^3+2.2e-8(a-a0)^4]
+#          a0 in deg, k in mdyn/(A*rad)
+#          mm3 k a0
+# fourier: E(r) = V/a[1+cos(n*a+a0)]
+#          a0 in deg, V in kcal/mol, n is unitless
+#          fourier V a0 n 1.0 1.0
+# quartic: E(a) = 1/2 k(a-a0)^2*[1-k2(a-a0)+k3(k2(a-a0))^2]
+#          a0 in deg, k in mdyn/(A*rad), k2 in 1/rad, and k3 is unitless
+#          quartic k a0 k2 k3
+# strbnd:  E(r1,r2,a) = kss(r1-r10)(r2-r20)+(a-a0)*[ksb1*(r1-r10)+ksb2(r2-r20)]
+#          r10, r20 in A, a in deg, kss in mdyn/A, ksb1 and ksb2 in mdyn/(rad*A)
+#          strbnd ksb1 ksb2 kss r10 r20 a0
+ang_type 21
+1                      mm3      1.15800396    113.15732538           # mm3->(c3_c2o1@ph,o2_c2@eth,c4_c1h2o1@me)|ph-O-butyl
+2                      mm3      0.50300000    120.35000000           # mm3->(c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+2                   strbnd     -0.17500000      0.37200000      0.64900000      1.39400000      1.09400000    120.35000000           # strbnd->(c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+3                      mm3      0.52086360    107.69128618           # mm3->(h1_c1@me,c4_c1h3@me,h1_c1@me)|butane
+4                      mm3      0.38811174    145.63485902           # mm3->(c3_c2h1@ph,c3_c2o1@ph,c3_c2h1@ph)|ph-O-butyl
+5                      mm3      0.91436861    113.16146445           # mm3->(c4_c1h2o1@me,c4_c2h2@me,c4_c2h2@me)|butane
+6                      mm3      0.89096995    103.04722970           # mm3->(c4_c2h2@me,c4_c1h2o1@me,h1_c1@me)|ph-O-butyl
+7                      mm3      1.39214985    102.81349855           # mm3->(c4_c2h2@me,c4_c1h2o1@me,o2_c2@eth)|ph-O-butyl
+8                   strbnd      0.04700000      0.04700000      0.49900000      1.39400000      1.39400000    127.05000000           # strbnd->(c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph)|benzene
+8                      mm3      0.74100000    127.05000000           # mm3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph)|benzene
+9                      mm3      0.63402061    128.53042895           # mm3->(c3_c2h1@ph,c3_c2o1@ph,o2_c2@eth)|ph-O-butyl
+10                     mm3      0.59321422    110.13412967           # mm3->(c4_c2h2@me,c4_c2h2@me,h1_c1@me)|butane
+11                     mm3      0.45158381    118.11840273           # mm3->(c3_c2o1@ph,c3_c2h1@ph,h1_c1@ph)|ph-O-butyl
+12                     mm3      0.54015833    107.27101457           # mm3->(h1_c1@me,c4_c2h2@me,h1_c1@me)|butane
+13                     mm3      0.91436861    113.16146445           # mm3->(c4_c1h3@me,c4_c2h2@me,c4_c2h2@me)|butane
+14                     mm3      0.58103586    109.07704165           # mm3->(c4_c1h2o1@me,c4_c2h2@me,h1_c1@me)|ph-O-butyl
+15                     mm3      0.61310813    110.60253983           # mm3->(c4_c1h3@me,c4_c2h2@me,h1_c1@me)|butane
+16                     mm3      1.05424217    102.77571652           # mm3->(h1_c1@me,c4_c1h2o1@me,o2_c2@eth)|ph-O-butyl
+17                     mm3      0.62495122    110.95994913           # mm3->(c4_c2h2@me,c4_c1h3@me,h1_c1@me)|butane
+18                     mm3      0.86397482     98.60639737           # mm3->(h1_c1@me,c4_c1h2o1@me,h1_c1@me)|ph-O-butyl
+19                     mm3      0.70108359    128.26375290           # mm3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2o1@ph)|ph-O-butyl
+
+# Supported dih potentials cos3, cos4
+# cos3:    E(d) = Va/2[1+cos(d)]+Vb/2[1-cos(d)]+Vc/2[1+cos(d)]
+#          Va, Vb and Vc in kcal/mol
+#          cos3 Va Vb Vc
+# cos4:    E(d) = Va/2[1+cos(d)]+Vb/2[1-cos(d)]+Vc/2[1+cos(d)]+Vd/2[1-cos(d)]
+#          Va, Vb, Vd and Vc in kcal/mol
+#          cos4 Va Vb Vc Vd
+dih_type 22
+1                     cos3      0.00000000      0.00000000      0.00002254           # cos3->(h1_c1@me,c4_c1h2o1@me,c4_c2h2@me,h1_c1@me)|ph-O-butyl
+2                     cos3      1.32861298      1.77084192      0.50567773           # cos3->(c4_c2h2@me,c4_c1h2o1@me,o2_c2@eth,c3_c2o1@ph)|ph-O-butyl
+3                     cos3      0.00000000      0.00000000     -0.05264111           # cos3->(c4_c1h3@me,c4_c2h2@me,c4_c2h2@me,h1_c1@me)|butane
+4                     cos3      0.00000000      5.35837136      0.00000000           # cos3->(c3_c2o1@ph,c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|ph-O-butyl
+5                     cos3      0.00000000      0.36950876      0.00000000           # cos3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph,c3_c2o1@ph)|ph-O-butyl
+6                     cos3      2.30909958      1.91090036      1.65702761           # cos3->(c3_c2h1@ph,c3_c2o1@ph,o2_c2@eth,c4_c1h2o1@me)|ph-O-butyl
+7                     cos3      0.00000000      3.93026400      0.00000000           # cos3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2o1@ph,c3_c2h1@ph)|ph-O-butyl
+8                     cos3      0.00000000      0.00000000      0.07172605           # cos3->(h1_c1@ph,c3_c2h1@ph,c3_c2o1@ph,o2_c2@eth)|ph-O-butyl
+9                     cos3      0.00000000      2.80441396      0.00000000           # cos3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2o1@ph,o2_c2@eth)|ph-O-butyl
+10                    cos3      0.24511475      0.46850559      0.00722597           # cos3->(o2_c2@eth,c4_c1h2o1@me,c4_c2h2@me,c4_c2h2@me)|ph-O-butyl
+11                    cos3      0.00000000      0.00000000      0.34307621           # cos3->(h1_c1@me,c4_c1h3@me,c4_c2h2@me,h1_c1@me)|butane
+12                    cos3      0.00000000      3.45032397      0.00000000           # cos3->(h1_c1@ph,c3_c2h1@ph,c3_c2o1@ph,c3_c2h1@ph)|ph-O-butyl
+13                    cos3      0.00000000      0.00000000      0.87047665           # cos3->(h1_c1@me,c4_c1h3@me,c4_c2h2@me,c4_c2h2@me)|butane
+14                    cos3      0.00000000      0.00000000      0.30205174           # cos3->(h1_c1@me,c4_c2h2@me,c4_c2h2@me,h1_c1@me)|butane
+15                    cos3      0.00000000      0.00000000      0.95398384           # cos3->(h1_c1@me,c4_c1h2o1@me,o2_c2@eth,c3_c2o1@ph)|ph-O-butyl
+16                    cos3      0.00000000      4.37900000      0.00000000           # cos3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph)|benzene
+17                    cos3      0.00000000      6.31600000      0.00000000           # cos3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+18                    cos3     -0.37085343     -0.23613788      1.97012401           # cos3->(c4_c1h2o1@me,c4_c2h2@me,c4_c2h2@me,c4_c1h3@me)|butane
+19                    cos3      0.00000000      0.00000000      2.33718307           # cos3->(h1_c1@me,c4_c1h2o1@me,c4_c2h2@me,c4_c2h2@me)|ph-O-butyl
+20                    cos3      0.00000000      0.00000000      4.98161880           # cos3->(o2_c2@eth,c4_c1h2o1@me,c4_c2h2@me,h1_c1@me)|ph-O-butyl
+21                    cos3      0.00000000      5.97200000      0.00000000           # cos3->(h1_c1@ph,c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+22                    cos3      0.00000000      0.00000000     -0.05264111           # cos3->(c4_c1h2o1@me,c4_c2h2@me,c4_c2h2@me,h1_c1@me)|butane
+
+# Supported oop potentials harm
+# harm:    E(d) = k/2*(d-d0)**2
+#          k in mdyn/(rad*A), d0 in deg
+#          harm k d0
+# cos4:    E(d) = Va/2[1+cos(d)]+Vb/2[1-cos(d)]+Vc/2[1+cos(d)]+Vd/2[1-cos(d)]
+#          Va, Vb, Vd and Vc in kcal/mol
+#          cos4 Va Vb Vc Vd
+oop_type 3
+1                     harm      0.01900000      0.00000000           # harm->(c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+2                     harm      0.17488920      0.00000000           # harm->(c3_c2o1@ph,c3_c2h1@ph,c3_c2h1@ph,o2_c2@eth)|ph-O-butyl
+3                     harm      0.09306178      0.00000000           # harm->(c3_c2h1@ph,c3_c2h1@ph,c3_c2o1@ph,h1_c1@ph)|ph-O-butyl
+
+# Supported charge types
+# gaussian: q in e-, w in A
+#           gaussian q w 
+cha_type 8
+1                 gaussian      0.06938500      1.16298600           # gaussian->(c4_c1h2o1@me)|ph-O-butyl
+2                 gaussian      0.12000000      0.72363800           # gaussian->(h1_c1@ph)|benzene
+3                 gaussian     -0.12613000      1.11755300           # gaussian->(o2_c2@eth)|ph-O-butyl
+4                 gaussian     -0.18000000      1.16298600           # gaussian->(c4_c1h3@me)|butane
+5                 gaussian     -0.06325600      1.16298600           # gaussian->(c3_c2o1@ph)|ph-O-butyl
+6                 gaussian      0.06000000      0.72363800           # gaussian->(h1_c1@me)|butane
+7                 gaussian     -0.12000000      1.16298600           # gaussian->(c3_c2h1@ph)|benzene
+8                 gaussian     -0.12000000      1.16298600           # gaussian->(c4_c2h2@me)|butane
+
+# Suppoerted types
+# buck6d: ep in kcal/mol, r0 in A
+#         buck r0 ep
+vdw_type 8
+1                   buck6d      2.04000000      0.02700000           # buck6d->(c4_c1h3@me)|butane
+2                   buck6d      1.82000000      0.05900000           # buck6d->(o2_c2@eth)|ph-O-butyl
+3                   buck6d      2.04000000      0.02700000           # buck6d->(c4_c1h2o1@me)|ph-O-butyl
+4                   buck6d      1.96000000      0.05600000           # buck6d->(c3_c2h1@ph)|benzene
+5                   buck6d      2.04000000      0.02700000           # buck6d->(c4_c2h2@me)|butane
+6                   buck6d      1.50000000      0.02000000           # buck6d->(h1_c1@ph)|benzene
+7                   buck6d      1.50000000      0.02000000           # buck6d->(h1_c1@me)|butane
+8                   buck6d      1.96000000      0.05600000           # buck6d->(c3_c2o1@ph)|ph-O-butyl
+
+
+vdwpr_type 0
+
+
+chapr_type 0
+
