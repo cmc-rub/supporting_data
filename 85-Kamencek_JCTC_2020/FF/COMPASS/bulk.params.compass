@@ -1,0 +1,98 @@
+# LAMMPS parameters created by EMC v9.3.8, build Aug 20 2015 14:37:09
+
+# Variables
+
+variable	cutoff		index	9.5
+variable	charge_cutoff	index	9.5
+
+#Define atom groups
+group           C type 1
+group           H type 2
+
+
+# Masses
+
+mass		1   12.01115  # cp
+mass		2    1.00797  # h
+
+# Potentials
+
+pair_style	lj/class2/coul/long ${cutoff} ${charge_cutoff}  # 9.5
+bond_style	class2
+angle_style	class2
+dihedral_style	class2
+improper_style	class2
+pair_modify	mix sixthpower tail yes
+special_bonds	lj/coul 0 0 1
+
+# Pair Coeffs
+
+pair_coeff	1 1    0.068000    3.91500  #0.06400    4.01000  # cp,cp
+pair_coeff	2 2    0.023000    2.87800  #0.02000    2.99500  # h,h
+
+# Bond Coeffs
+
+bond_coeff	1    1.41700  470.83610 -627.61790 1327.63450  # cp,cp
+bond_coeff	2    1.09820  372.82510 -803.45260  894.31730  # cp,h
+
+# Angle Coeffs
+
+angle_coeff	1  118.90000   61.02260  -34.99310    0.00000  # cp,cp,cp
+angle_coeff	2  117.94000   35.15580  -12.46820    0.00000  # cp,cp,h
+
+# BondBond Coeffs
+
+angle_coeff	1 bb   68.28560    1.41700    1.41700  # cp,cp,cp
+angle_coeff	2 bb    1.07950    1.41700    1.09820  # cp,cp,h
+
+# BondAngle Coeffs
+
+angle_coeff	1 ba   28.87080   28.87080    1.41700    1.41700  # cp,cp,cp
+angle_coeff	2 ba   20.00330   24.21830    1.41700    1.09820  # cp,cp,h
+
+# Dihedral Coeffs
+
+dihedral_coeff	1    8.36670    0.00000    1.19320    0.00000    0.00000    0.00000  # cp,cp,cp,cp
+dihedral_coeff	2    0.00000    0.00000    3.96610    0.00000    0.00000    0.00000  # cp,cp,cp,h
+dihedral_coeff	3    0.00000    0.00000    1.87690    0.00000    0.00000    0.00000  # h,cp,cp,h
+
+# MiddleBondTorsion Coeffs
+
+dihedral_coeff	1 mbt   27.59890   -2.31200    0.00000    1.41700  # cp,cp,cp,cp
+dihedral_coeff	2 mbt    0.00000   -1.15210    0.00000    1.41700  # cp,cp,cp,h
+dihedral_coeff	3 mbt    0.00000    4.82280    0.00000    1.41700  # h,cp,cp,h
+
+# EndBondTorsion Coeffs
+
+dihedral_coeff	1 ebt   -0.11850    6.32040    0.00000   -0.11850    6.32040    0.00000    1.41700    1.41700  # cp,cp,cp,cp
+dihedral_coeff	2 ebt    0.00000   -6.89580    0.00000    0.00000   -0.46690    0.00000    1.41700    1.09820  # cp,cp,cp,h
+dihedral_coeff	3 ebt    0.00000   -0.68900    0.00000    0.00000   -0.68900    0.00000    1.09820    1.09820  # h,cp,cp,h
+
+# AngleTorsion Coeffs
+
+dihedral_coeff	1 at    1.97670    1.02390    0.00000    1.97670    1.02390    0.00000  118.90000  118.90000  # cp,cp,cp,cp
+dihedral_coeff	2 at    0.00000    2.50140    0.00000    0.00000    2.71470    0.00000  118.90000  117.94000  # cp,cp,cp,h
+dihedral_coeff	3 at    0.00000    2.45010    0.00000    0.00000    2.45010    0.00000  117.94000  117.94000  # h,cp,cp,h
+
+# AngleAngleTorsion Coeffs
+
+dihedral_coeff	1 aat    0.00000  118.90000  118.90000  # cp,cp,cp,cp
+dihedral_coeff	2 aat   -4.81410  118.90000  117.94000  # cp,cp,cp,h
+dihedral_coeff	3 aat    0.35980  117.94000  117.94000  # h,cp,cp,h
+
+# BondBond13 Coeffs
+
+dihedral_coeff	1 bb13   53.00000    1.41700    1.41700  # cp,cp,cp,cp
+dihedral_coeff	2 bb13   -6.27410    1.41700    1.09820  # cp,cp,cp,h
+dihedral_coeff	3 bb13   -1.70770    1.09820    1.09820  # h,cp,cp,h
+
+# Improper Coeffs
+
+improper_coeff	1    7.17940    0.00000  # cp,cp,cp,cp
+improper_coeff	2    4.89120    0.00000  # cp,cp,cp,h
+
+# AngleAngle Coeffs
+
+improper_coeff	1 aa    0.00000    0.00000    0.00000  118.90000  118.90000  118.90000  # cp,cp,cp,cp
+improper_coeff	2 aa    0.00000    0.00000    0.00000  118.90000  117.94000  117.94000  # cp,cp,cp,h
+

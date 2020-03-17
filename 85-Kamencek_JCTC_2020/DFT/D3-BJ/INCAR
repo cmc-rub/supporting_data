@@ -1,0 +1,28 @@
+SYSTEM = Phonons  IRMOF130
+
+# Electronic degrees                                                                                                   
+ENCUT = 900
+LREAL = .FALSE.
+PREC  =  Accurate                # 
+ALGO  =  Fast                    # 
+
+# Convergence criteria
+EDIFF = 1E-8                  # 
+
+#
+IBRION=-1; 
+ISMEAR = 0 ; SIGMA = 0.05
+
+#parallelisation
+LPLANE = .TRUE.
+NSIM = 4
+NCORE = 16
+#KPAR = 1
+
+#vdW-D3BJ correction 
+IVDW=12
+
+#
+ISTART = 0
+LCHARG = .FALSE.
+LWAVE  = .FALSE.

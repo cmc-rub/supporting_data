@@ -1,0 +1,33 @@
+# LAMMPS input script for standardized atomistic simulations
+# Created by emc_setup.pl v0.8.1beta, August 1, 2015 as part of EMC
+# on Die Mai 10 16:51:22 CEST 2016
+
+# Variable definitions
+
+variable	precision	index	1e-7     # kspace precision
+
+# LAMMPS atomistic input script
+
+echo          screen
+atom_style full
+units real
+box tilt large
+read_data     geo.data
+include       bulk.params.compass
+kspace_style	pppm ${precision}
+	
+
+###################################################################
+compute   ke all ke/atom
+variable  temp_atom atom c_ke/1.5
+thermo_style custom step pe etotal  evdwl ecoul epair ebond eangle edihed eimp etail elong emol 
+thermo_modify norm no # do not normalize by the number of atoms
+thermo          1
+
+dump force all custom 1 forces.dat id fx fy fz
+dump_modify force sort id
+dump relax all custom 1 relax.lmp id type x y z
+
+min_style cg
+minimize 0 0 0 0
+
