@@ -27,9 +27,7 @@ Hamiltonian = DFTB {
      }
   # Reading the parameters for the calculation
      SlaterKosterFiles = Type2FileNames {
-     #Prefix = "/home/tomaskamencek/bin/DFTB+/DFTB+_PARAMETERS/3ob-3-1/" 
-     Prefix = "/home/tomaskamencek/bin/DFTB+/DFTB+_PARAMETERS/3ob31-3obfreq12-3obhhmod12-3obnhmod12/"
-     #Prefix = "/home/lv70818/kamencek/bin/DFTB+/DFTB+_PARAMETERS/3ob31-3obfreq12-3obhhmod12-3obnhmod12/"
+     Prefix = "./slakos/"
      Separator = "-"
      Suffix = ".skf"
      }
