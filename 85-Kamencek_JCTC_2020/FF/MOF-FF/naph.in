@@ -1,0 +1,142 @@
+
+# ------------------------ MOF-FF FORCE FIELD ------------------------------
+
+kspace_style ewald      1e-10
+pair_style buck6d/coul/gauss/long     0.9000     0.9000    12.0000
+
+pair_coeff     1     1           10304       3.0612245       457.17971       4.5218516      0.60800971    # buck6d->(c3_c2h1@naph)|naphtalene/gaussian->(c3_c2h1@naph)|naphtalene <--> buck6d->(c3_c2h1@naph)|naphtalene/gaussian->(c3_c2h1@naph)|naphtalene
+pair_coeff     1     2           10304       3.0612245       457.17971       4.5218516      0.60800971    # buck6d->(c3_c2h1@naph)|naphtalene/gaussian->(c3_c2h1@naph)|naphtalene <--> buck6d->(c3_c2h1S@naph)|naphtalene/gaussian->(c3_c2h1S@naph)|naphtalene
+pair_coeff     1     3           10304       3.0612245       457.17971       4.5218516      0.60800971    # buck6d->(c3_c2h1@naph)|naphtalene/gaussian->(c3_c2h1@naph)|naphtalene <--> buck6d->(c3_c3@naph)|naphtalene/gaussian->(c3_c3@naph)|naphtalene
+pair_coeff     1     4       6157.8178       3.4682081       129.19572      0.78772886      0.73006542    # buck6d->(c3_c2h1@naph)|naphtalene/gaussian->(c3_c2h1@naph)|naphtalene <--> buck6d->(h1_c1@naph)|naphtalene/gaussian->(h1_c1@naph)|naphtalene
+pair_coeff     1     5       6157.8178       3.4682081       129.19572      0.78772886      0.73006542    # buck6d->(c3_c2h1@naph)|naphtalene/gaussian->(c3_c2h1@naph)|naphtalene <--> buck6d->(h1_c1S@naph)|naphtalene/gaussian->(h1_c1S@naph)|naphtalene
+pair_coeff     2     2           10304       3.0612245       457.17971       4.5218516      0.60800971    # buck6d->(c3_c2h1S@naph)|naphtalene/gaussian->(c3_c2h1S@naph)|naphtalene <--> buck6d->(c3_c2h1S@naph)|naphtalene/gaussian->(c3_c2h1S@naph)|naphtalene
+pair_coeff     2     3           10304       3.0612245       457.17971       4.5218516      0.60800971    # buck6d->(c3_c2h1S@naph)|naphtalene/gaussian->(c3_c2h1S@naph)|naphtalene <--> buck6d->(c3_c3@naph)|naphtalene/gaussian->(c3_c3@naph)|naphtalene
+pair_coeff     2     4       6157.8178       3.4682081       129.19572      0.78772886      0.73006542    # buck6d->(c3_c2h1S@naph)|naphtalene/gaussian->(c3_c2h1S@naph)|naphtalene <--> buck6d->(h1_c1@naph)|naphtalene/gaussian->(h1_c1@naph)|naphtalene
+pair_coeff     2     5       6157.8178       3.4682081       129.19572      0.78772886      0.73006542    # buck6d->(c3_c2h1S@naph)|naphtalene/gaussian->(c3_c2h1S@naph)|naphtalene <--> buck6d->(h1_c1S@naph)|naphtalene/gaussian->(h1_c1S@naph)|naphtalene
+pair_coeff     3     3           10304       3.0612245       457.17971       4.5218516      0.60800971    # buck6d->(c3_c3@naph)|naphtalene/gaussian->(c3_c3@naph)|naphtalene <--> buck6d->(c3_c3@naph)|naphtalene/gaussian->(c3_c3@naph)|naphtalene
+pair_coeff     3     4       6157.8178       3.4682081       129.19572      0.78772886      0.73006542    # buck6d->(c3_c3@naph)|naphtalene/gaussian->(c3_c3@naph)|naphtalene <--> buck6d->(h1_c1@naph)|naphtalene/gaussian->(h1_c1@naph)|naphtalene
+pair_coeff     3     5       6157.8178       3.4682081       129.19572      0.78772886      0.73006542    # buck6d->(c3_c3@naph)|naphtalene/gaussian->(c3_c3@naph)|naphtalene <--> buck6d->(h1_c1S@naph)|naphtalene/gaussian->(h1_c1S@naph)|naphtalene
+pair_coeff     4     4            3680               4          32.805      0.10690769       0.9771554    # buck6d->(h1_c1@naph)|naphtalene/gaussian->(h1_c1@naph)|naphtalene <--> buck6d->(h1_c1@naph)|naphtalene/gaussian->(h1_c1@naph)|naphtalene
+pair_coeff     4     5            3680               4          32.805      0.10690769       0.9771554    # buck6d->(h1_c1@naph)|naphtalene/gaussian->(h1_c1@naph)|naphtalene <--> buck6d->(h1_c1S@naph)|naphtalene/gaussian->(h1_c1S@naph)|naphtalene
+pair_coeff     5     5            3680               4          32.805      0.10690769       0.9771554    # buck6d->(h1_c1S@naph)|naphtalene/gaussian->(h1_c1S@naph)|naphtalene <--> buck6d->(h1_c1S@naph)|naphtalene/gaussian->(h1_c1S@naph)|naphtalene
+
+bond_style hybrid class2 morse harmonic
+
+bond_coeff     3 class2     1.096263   366.570728  -934.755355  1390.448591    # mm3->(c3_c2h1@naph,h1_c1@naph)|naphtalene
+bond_coeff     6 class2     1.433161   381.108715  -971.827224  1445.592996    # mm3->(c3_c3@naph,c3_c3@naph)|naphtalene
+bond_coeff     1 class2     1.391210   490.285107 -1250.227022  1859.712695    # mm3->(c3_c2h1@naph,c3_c2h1S@naph)|naphtalene
+bond_coeff     2 class2     1.454449   349.932367  -892.327535  1327.337208    # mm3->(c3_c2h1@naph,c3_c2h1@naph)|naphtalene
+bond_coeff     4 class2     1.435896   383.965503  -979.112033  1456.429149    # mm3->(c3_c2h1S@naph,c3_c3@naph)|naphtalene
+bond_coeff     5 class2     1.090635   382.608333  -975.651250  1451.281234    # mm3->(c3_c2h1S@naph,h1_c1S@naph)|naphtalene
+
+angle_style hybrid class2/p6 cosine/buck6d
+
+angle_coeff     8 class2/p6      108.146325    94.230110   -75.585826    17.322995   -12.406682    22.341015    # mm3->(c3_c2h1S@naph,c3_c3@naph,c3_c3@naph)|naphtalene
+angle_coeff     8 class2/p6 bb    61.790580     1.435896     1.433161
+angle_coeff     8 class2/p6 ba    69.044622    24.678564     1.435896     1.433161
+angle_coeff     7 class2/p6      120.083549    50.819349   -40.764279     9.342485    -6.691062    12.048759    # mm3->(c3_c2h1S@naph,c3_c3@naph,c3_c2h1S@naph)|naphtalene
+angle_coeff     7 class2/p6 bb    63.409397     1.435896     1.435896
+angle_coeff     7 class2/p6 ba    33.560423    33.560423     1.435896     1.435896
+angle_coeff     6 class2/p6      120.989674    30.577529   -24.527487     5.621286    -4.025950     7.249626    # mm3->(c3_c3@naph,c3_c2h1S@naph,h1_c1S@naph)|naphtalene
+angle_coeff     6 class2/p6 bb     7.682251     1.435896     1.090635
+angle_coeff     6 class2/p6 ba    25.498143    28.515360     1.435896     1.090635
+angle_coeff     3 class2/p6      116.807583    39.917331   -32.019324     7.338289    -5.255662     9.463999    # mm3->(c3_c2h1@naph,c3_c2h1@naph,h1_c1@naph)|naphtalene
+angle_coeff     3 class2/p6 bb     8.763731     1.454449     1.096263
+angle_coeff     3 class2/p6 ba    30.724541    26.104046     1.454449     1.096263
+angle_coeff     4 class2/p6      114.769310    93.785723   -75.229365    17.241300   -12.348172    22.235656    # mm3->(c3_c2h1@naph,c3_c2h1S@naph,c3_c3@naph)|naphtalene
+angle_coeff     4 class2/p6 bb    90.168492     1.391210     1.435896
+angle_coeff     4 class2/p6 ba    86.536187    63.628816     1.391210     1.435896
+angle_coeff     5 class2/p6      124.234272    29.012370   -23.272009     5.333552    -3.819875     6.878542    # mm3->(c3_c2h1@naph,c3_c2h1S@naph,h1_c1S@naph)|naphtalene
+angle_coeff     5 class2/p6 bb     9.732514     1.391210     1.090635
+angle_coeff     5 class2/p6 ba    31.449745    26.623502     1.391210     1.090635
+angle_coeff     1 class2/p6      112.413065    99.632083   -79.918970    18.316079   -13.117925    23.621769    # mm3->(c3_c2h1@naph,c3_c2h1@naph,c3_c2h1S@naph)|naphtalene
+angle_coeff     1 class2/p6 bb   104.912889     1.454449     1.391210
+angle_coeff     1 class2/p6 ba   106.286485    77.649009     1.454449     1.391210
+angle_coeff     2 class2/p6      118.001113    38.562917   -30.932893     7.089297    -5.077335     9.142881    # mm3->(c3_c2h1S@naph,c3_c2h1@naph,h1_c1@naph)|naphtalene
+angle_coeff     2 class2/p6 bb     9.862886     1.391210     1.096263
+angle_coeff     2 class2/p6 ba    31.790211    26.090601     1.391210     1.096263
+
+dihedral_style hybrid opls class2
+
+dihedral_coeff     4 class2     0.000000     0.000000     2.279729     0.000000     0.000000     0.000000    # class2->(h1_c1@naph,c3_c2h1@naph,c3_c2h1S@naph,h1_c1S@naph)|naphtalene
+dihedral_coeff     4 class2 mbt 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     4 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     4 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     4 class2 aat 0.0 0.0 0.0 # dummy
+dihedral_coeff     4 class2 bb13 0.0 0.0 0.0
+dihedral_coeff    11 class2     0.000000     0.000000     2.415742     0.000000     0.000000     0.000000    # class2->(h1_c1S@naph,c3_c2h1S@naph,c3_c3@naph,c3_c3@naph)|naphtalene
+dihedral_coeff    11 class2 mbt 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff    11 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff    11 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff    11 class2 aat 0.0 0.0 0.0 # dummy
+dihedral_coeff    11 class2 bb13 0.0 0.0 0.0
+dihedral_coeff     8 class2     0.000000     0.000000     1.897513     0.000000     0.000000     0.000000    # class2->(c3_c2h1@naph,c3_c2h1S@naph,c3_c3@naph,c3_c2h1S@naph)|naphtalene
+dihedral_coeff     8 class2 mbt 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     8 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     8 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     8 class2 aat 0.0 0.0 0.0 # dummy
+dihedral_coeff     8 class2 bb13 0.0 0.0 0.0
+dihedral_coeff     2 class2     0.000000     0.000000     3.996343     0.000000     0.000000     0.000000    # class2->(c3_c2h1@naph,c3_c2h1@naph,c3_c2h1S@naph,h1_c1S@naph)|naphtalene
+dihedral_coeff     2 class2 mbt 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     2 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     2 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     2 class2 aat 0.0 0.0 0.0 # dummy
+dihedral_coeff     2 class2 bb13 0.0 0.0 0.0
+dihedral_coeff    10 class2     0.000000     0.000000     1.639432     0.000000     0.000000     0.000000    # class2->(h1_c1S@naph,c3_c2h1S@naph,c3_c3@naph,c3_c2h1S@naph)|naphtalene
+dihedral_coeff    10 class2 mbt 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff    10 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff    10 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff    10 class2 aat 0.0 0.0 0.0 # dummy
+dihedral_coeff    10 class2 bb13 0.0 0.0 0.0
+dihedral_coeff    12 class2     0.000000     0.000000     2.799249     0.000000     0.000000     0.000000    # class2->(c3_c2h1S@naph,c3_c3@naph,c3_c3@naph,c3_c2h1S@naph)|naphtalene
+dihedral_coeff    12 class2 mbt 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff    12 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff    12 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff    12 class2 aat 0.0 0.0 0.0 # dummy
+dihedral_coeff    12 class2 bb13 0.0 0.0 0.0
+dihedral_coeff     1 class2 bb13   -70.099189     1.454449     1.435896    # bb13->(c3_c2h1@naph,c3_c2h1@naph,c3_c2h1S@naph,c3_c3@naph)|naphtalene
+dihedral_coeff     1 class2     0.000000     0.000000     3.801176     0.000000     0.000000     0.000000    # class2->(c3_c2h1@naph,c3_c2h1@naph,c3_c2h1S@naph,c3_c3@naph)|naphtalene
+dihedral_coeff     1 class2 mbt 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     1 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     1 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     1 class2 aat 0.0 0.0 0.0 # dummy
+dihedral_coeff     3 class2     0.000000     0.000000     4.025101     0.000000     0.000000     0.000000    # class2->(h1_c1@naph,c3_c2h1@naph,c3_c2h1S@naph,c3_c3@naph)|naphtalene
+dihedral_coeff     3 class2 mbt 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     3 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     3 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     3 class2 aat 0.0 0.0 0.0 # dummy
+dihedral_coeff     3 class2 bb13 0.0 0.0 0.0
+dihedral_coeff     9 class2     0.000000     0.000000     7.137224     0.000000     0.000000     0.000000    # class2->(c3_c2h1@naph,c3_c2h1S@naph,c3_c3@naph,c3_c3@naph)|naphtalene
+dihedral_coeff     9 class2 mbt 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     9 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     9 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     9 class2 aat 0.0 0.0 0.0 # dummy
+dihedral_coeff     9 class2 bb13 0.0 0.0 0.0
+dihedral_coeff     6 class2     0.000000     0.000000     2.585528     0.000000     0.000000     0.000000    # class2->(c3_c2h1S@naph,c3_c2h1@naph,c3_c2h1@naph,h1_c1@naph)|naphtalene
+dihedral_coeff     6 class2 mbt 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     6 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     6 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     6 class2 aat 0.0 0.0 0.0 # dummy
+dihedral_coeff     6 class2 bb13 0.0 0.0 0.0
+dihedral_coeff     5 class2 bb13   -75.085553     1.391210     1.391210    # bb13->(c3_c2h1S@naph,c3_c2h1@naph,c3_c2h1@naph,c3_c2h1S@naph)|naphtalene
+dihedral_coeff     5 class2     0.000000     0.000000     6.412985     0.000000     0.000000     0.000000    # class2->(c3_c2h1S@naph,c3_c2h1@naph,c3_c2h1@naph,c3_c2h1S@naph)|naphtalene
+dihedral_coeff     5 class2 mbt 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     5 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     5 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     5 class2 aat 0.0 0.0 0.0 # dummy
+dihedral_coeff     7 class2     0.000000     0.000000     1.336357     0.000000     0.000000     0.000000    # class2->(h1_c1@naph,c3_c2h1@naph,c3_c2h1@naph,h1_c1@naph)|naphtalene
+dihedral_coeff     7 class2 mbt 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     7 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     7 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 # dummy
+dihedral_coeff     7 class2 aat 0.0 0.0 0.0 # dummy
+dihedral_coeff     7 class2 bb13 0.0 0.0 0.0
+
+improper_style inversion/harmonic
+
+improper_coeff     2     1.217508     0.000000    # harm->(c3_c2h1S@naph,c3_c2h1@naph,c3_c3@naph,h1_c1S@naph)|naphtalene
+improper_coeff     1     5.430825     0.000000    # harm->(c3_c2h1@naph,c3_c2h1@naph,c3_c2h1S@naph,h1_c1@naph)|naphtalene
+improper_coeff     3     7.389044     0.000000    # harm->(c3_c3@naph,c3_c2h1S@naph,c3_c2h1S@naph,c3_c3@naph)|naphtalene
+
+special_bonds lj 0.00 0.00 1.00 coul 1.00 1.00 1.00
+
+# ------------------------ MOF-FF FORCE FIELD END --------------------------
