@@ -4,6 +4,8 @@ Supporting data for 'Configurational Entropy Driven High-Pressure Behaviour of a
 
 [‡] These authors contributed equally to this work.
 
-The folders contain the force field parameters in our in-house developed `.ric`. and `.par` file format aswell as the inputs to perform the calculations carried out in the context of this manuscript:
-
+The folders contain:
+* the initial structures used for the NPT simulations
+* the force field parameters in our in-house developed `.ric`. and `.par` file format aswell as in `.in` and `.data` file format to run LAMMPS without our in-house [pylmps](https://github.com/MOFplus/pylmps) wrapper. 
+* the python scripts that drive the simulations
 
