@@ -1,6 +1,6 @@
 # Supporting Data
 
-Supporting data for 'Configurational Entropy Driven High-Pressure Behaviour of a Flexible Metal-Organic Framework', Pia Vervoorts,‡ Julian Keupp,‡ Andreas Schneemann, Claire L. Hobday, Dominik Daisenberger, Roland A. Fischer Rochus Schmid and Gregor Kieslich
+Supporting data for 'Configurational Entropy Driven High-Pressure Behaviour of a Flexible Metal-Organic Framework', Pia Vervoorts,‡ Julian Keupp,‡ Andreas Schneemann, Claire L. Hobday, Dominik Daisenberger, Roland A. Fischer, Rochus Schmid and Gregor Kieslich
 
 [‡] These authors contributed equally to this work.
 
