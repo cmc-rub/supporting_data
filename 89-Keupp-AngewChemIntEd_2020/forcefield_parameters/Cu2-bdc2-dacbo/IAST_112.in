@@ -1,0 +1,156 @@
+clear
+units real
+boundary p p p
+atom_style full
+box tilt large
+read_data IAST_112.data
+
+neighbor 2.0 bin
+
+
+# ------------------------ MOF-FF FORCE FIELD ------------------------------
+
+kspace_style ewald      1e-06
+pair_style buck6d/coul/gauss/long     0.9000     0.9000    12.0000
+
+pair_coeff     1     1           54464       2.6548673       5679.4311       33.208515      0.34105377    # buck6d->(cu6_cu1n1o4@cu2p)|CuPW_dabco/gaussian->(cu6_cu1n1o4@cu2p)|CuPW_dabco <--> buck6d->(cu6_cu1n1o4@cu2p)|CuPW_dabco/gaussian->(cu6_cu1n1o4@cu2p)|CuPW_dabco
+pair_coeff     1     2       24315.863       2.9411765       1371.5617       7.9168726      0.42456807    # buck6d->(cu6_cu1n1o4@cu2p)|CuPW_dabco/gaussian->(cu6_cu1n1o4@cu2p)|CuPW_dabco <--> buck6d->(o2_c1cu1@co2)|CuPW_dabco/gaussian->(o2_c1cu1@co2)|CuPW_dabco
+pair_coeff     1     3       23689.598       2.8571429       1590.0769        11.87959      0.42066066    # buck6d->(cu6_cu1n1o4@cu2p)|CuPW_dabco/gaussian->(cu6_cu1n1o4@cu2p)|CuPW_dabco <--> buck6d->(c3_c1o2@co2)|CuPW_dabco/gaussian->(c3_c1o2@co2)|CuPW_dabco
+pair_coeff     1     4       23689.598       2.8436019        1636.052       12.696549      0.42066187    # buck6d->(cu6_cu1n1o4@cu2p)|CuPW_dabco/gaussian->(cu6_cu1n1o4@cu2p)|CuPW_dabco <--> buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene
+pair_coeff     1     5       23689.598       2.8436019        1636.052       12.696549      0.42066066    # buck6d->(cu6_cu1n1o4@cu2p)|CuPW_dabco/gaussian->(cu6_cu1n1o4@cu2p)|CuPW_dabco <--> buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|CuPW_dabco
+pair_coeff     1     6       14157.243       3.1914894       489.18197       2.5231391      0.45538243    # buck6d->(cu6_cu1n1o4@cu2p)|CuPW_dabco/gaussian->(cu6_cu1n1o4@cu2p)|CuPW_dabco <--> buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene
+pair_coeff     1     7       20758.593       2.8639618       1373.5572       11.489674      0.42393054    # buck6d->(cu6_cu1n1o4@cu2p)|CuPW_dabco/gaussian->(cu6_cu1n1o4@cu2p)|CuPW_dabco <--> buck6d->(n4_c3cu1@dab)|dabco/gaussian->(n4_c3cu1@dab)|dabco
+pair_coeff     1     8        16449.23       2.7906977       1271.5135       16.514664      0.42066186    # buck6d->(cu6_cu1n1o4@cu2p)|CuPW_dabco/gaussian->(cu6_cu1n1o4@cu2p)|CuPW_dabco <--> buck6d->(c4_c1h2n1@dab)|dabco/gaussian->(c4_c1h2n1@dab)|dabco
+pair_coeff     1     9       14157.243       3.1914894       489.18197       2.5231391      0.45538238    # buck6d->(cu6_cu1n1o4@cu2p)|CuPW_dabco/gaussian->(cu6_cu1n1o4@cu2p)|CuPW_dabco <--> buck6d->(h1_c1@dab)|dabco/gaussian->(h1_c1@dab)|dabco
+pair_coeff     2     2           10856       3.2967033        308.7755       1.6022517      0.63270113    # buck6d->(o2_c1cu1@co2)|CuPW_dabco/gaussian->(o2_c1cu1@co2)|CuPW_dabco <--> buck6d->(o2_c1cu1@co2)|CuPW_dabco/gaussian->(o2_c1cu1@co2)|CuPW_dabco
+pair_coeff     2     3       10576.399       3.1914894       365.45138       2.5231391      0.61998309    # buck6d->(o2_c1cu1@co2)|CuPW_dabco/gaussian->(o2_c1cu1@co2)|CuPW_dabco <--> buck6d->(c3_c1o2@co2)|CuPW_dabco/gaussian->(c3_c1o2@co2)|CuPW_dabco
+pair_coeff     2     4       10576.399       3.1746032       377.27092       2.7176691      0.61998697    # buck6d->(o2_c1cu1@co2)|CuPW_dabco/gaussian->(o2_c1cu1@co2)|CuPW_dabco <--> buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene
+pair_coeff     2     5       10576.399       3.1746032       377.27092       2.7176691      0.61998309    # buck6d->(o2_c1cu1@co2)|CuPW_dabco/gaussian->(o2_c1cu1@co2)|CuPW_dabco <--> buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|CuPW_dabco
+pair_coeff     2     6       6320.6076       3.6144578       103.50278      0.44181916      0.75107727    # buck6d->(o2_c1cu1@co2)|CuPW_dabco/gaussian->(o2_c1cu1@co2)|CuPW_dabco <--> buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene
+pair_coeff     2     7         9267.83             3.2       315.15947       2.4307994      0.63059705    # buck6d->(o2_c1cu1@co2)|CuPW_dabco/gaussian->(o2_c1cu1@co2)|CuPW_dabco <--> buck6d->(n4_c3cu1@dab)|dabco/gaussian->(n4_c3cu1@dab)|dabco
+pair_coeff     2     8       7343.8824       3.1088083       297.03952       3.6436247      0.61998694    # buck6d->(o2_c1cu1@co2)|CuPW_dabco/gaussian->(o2_c1cu1@co2)|CuPW_dabco <--> buck6d->(c4_c1h2n1@dab)|dabco/gaussian->(c4_c1h2n1@dab)|dabco
+pair_coeff     2     9       6320.6076       3.6144578       103.50278      0.44181916      0.75107705    # buck6d->(o2_c1cu1@co2)|CuPW_dabco/gaussian->(o2_c1cu1@co2)|CuPW_dabco <--> buck6d->(h1_c1@dab)|dabco/gaussian->(h1_c1@dab)|dabco
+pair_coeff     3     3           10304       3.0927835       429.89352       3.9170177      0.60800239    # buck6d->(c3_c1o2@co2)|CuPW_dabco/gaussian->(c3_c1o2@co2)|CuPW_dabco <--> buck6d->(c3_c1o2@co2)|CuPW_dabco/gaussian->(c3_c1o2@co2)|CuPW_dabco
+pair_coeff     3     4           10304       3.0769231       443.36171       4.2093581      0.60800605    # buck6d->(c3_c1o2@co2)|CuPW_dabco/gaussian->(c3_c1o2@co2)|CuPW_dabco <--> buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene
+pair_coeff     3     5           10304       3.0769231       443.36171       4.2093581      0.60800239    # buck6d->(c3_c1o2@co2)|CuPW_dabco/gaussian->(c3_c1o2@co2)|CuPW_dabco <--> buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|CuPW_dabco
+pair_coeff     3     6       6157.8178       3.4883721        124.7792      0.72632262      0.73005908    # buck6d->(c3_c1o2@co2)|CuPW_dabco/gaussian->(c3_c1o2@co2)|CuPW_dabco <--> buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene
+pair_coeff     3     7       9029.1333       3.1007752       370.91684       3.7780255      0.61800297    # buck6d->(c3_c1o2@co2)|CuPW_dabco/gaussian->(c3_c1o2@co2)|CuPW_dabco <--> buck6d->(n4_c3cu1@dab)|dabco/gaussian->(n4_c3cu1@dab)|dabco
+pair_coeff     3     8       7154.7377       3.0150754       347.74176       5.5933807      0.60800602    # buck6d->(c3_c1o2@co2)|CuPW_dabco/gaussian->(c3_c1o2@co2)|CuPW_dabco <--> buck6d->(c4_c1h2n1@dab)|dabco/gaussian->(c4_c1h2n1@dab)|dabco
+pair_coeff     3     9       6157.8178       3.4883721        124.7792      0.72632262      0.73005889    # buck6d->(c3_c1o2@co2)|CuPW_dabco/gaussian->(c3_c1o2@co2)|CuPW_dabco <--> buck6d->(h1_c1@dab)|dabco/gaussian->(h1_c1@dab)|dabco
+pair_coeff     4     4           10304       3.0612245       457.17971       4.5218516      0.60800971    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene <--> buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene
+pair_coeff     4     5           10304       3.0612245       457.17971       4.5218516      0.60800605    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene <--> buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|CuPW_dabco
+pair_coeff     4     6       6157.8178       3.4682081       129.19572      0.78772886      0.73006542    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene <--> buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene
+pair_coeff     4     7       9029.1333       3.0848329       382.56776       4.0607457      0.61800681    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene <--> buck6d->(n4_c3cu1@dab)|dabco/gaussian->(n4_c3cu1@dab)|dabco
+pair_coeff     4     8       7154.7377               3       358.35904               6      0.60800968    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene <--> buck6d->(c4_c1h2n1@dab)|dabco/gaussian->(c4_c1h2n1@dab)|dabco
+pair_coeff     4     9       6157.8178       3.4682081       129.19572      0.78772886      0.73006522    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene <--> buck6d->(h1_c1@dab)|dabco/gaussian->(h1_c1@dab)|dabco
+pair_coeff     5     5           10304       3.0612245       457.17971       4.5218516      0.60800239    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|CuPW_dabco <--> buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|CuPW_dabco
+pair_coeff     5     6       6157.8178       3.4682081       129.19572      0.78772886      0.73005908    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|CuPW_dabco <--> buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene
+pair_coeff     5     7       9029.1333       3.0848329       382.56776       4.0607457      0.61800297    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|CuPW_dabco <--> buck6d->(n4_c3cu1@dab)|dabco/gaussian->(n4_c3cu1@dab)|dabco
+pair_coeff     5     8       7154.7377               3       358.35904               6      0.60800602    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|CuPW_dabco <--> buck6d->(c4_c1h2n1@dab)|dabco/gaussian->(c4_c1h2n1@dab)|dabco
+pair_coeff     5     9       6157.8178       3.4682081       129.19572      0.78772886      0.73005889    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|CuPW_dabco <--> buck6d->(h1_c1@dab)|dabco/gaussian->(h1_c1@dab)|dabco
+pair_coeff     6     6            3680               4          32.805      0.10690769       0.9771554    # buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene <--> buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene
+pair_coeff     6     7       5395.9392       3.4985423       107.44754      0.69731507      0.74756462    # buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene <--> buck6d->(n4_c3cu1@dab)|dabco/gaussian->(n4_c3cu1@dab)|dabco
+pair_coeff     6     8       4275.7736       3.3898305       102.89611       1.0848184      0.73006537    # buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene <--> buck6d->(c4_c1h2n1@dab)|dabco/gaussian->(c4_c1h2n1@dab)|dabco
+pair_coeff     6     9            3680               4          32.805      0.10690769      0.97715493    # buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene <--> buck6d->(h1_c1@dab)|dabco/gaussian->(h1_c1@dab)|dabco
+pair_coeff     7     7            7912       3.1088083       320.01829       3.6436247      0.62851383    # buck6d->(n4_c3cu1@dab)|dabco/gaussian->(n4_c3cu1@dab)|dabco <--> buck6d->(n4_c3cu1@dab)|dabco/gaussian->(n4_c3cu1@dab)|dabco
+pair_coeff     7     8       6269.5148         3.02267        300.1523       5.3998098      0.61800678    # buck6d->(n4_c3cu1@dab)|dabco/gaussian->(n4_c3cu1@dab)|dabco <--> buck6d->(c4_c1h2n1@dab)|dabco/gaussian->(c4_c1h2n1@dab)|dabco
+pair_coeff     7     9       5395.9392       3.4985423       107.44754      0.69731507       0.7475644    # buck6d->(n4_c3cu1@dab)|dabco/gaussian->(n4_c3cu1@dab)|dabco <--> buck6d->(h1_c1@dab)|dabco/gaussian->(h1_c1@dab)|dabco
+pair_coeff     8     8            4968       2.9411765       280.22525       7.9168726      0.60800966    # buck6d->(c4_c1h2n1@dab)|dabco/gaussian->(c4_c1h2n1@dab)|dabco <--> buck6d->(c4_c1h2n1@dab)|dabco/gaussian->(c4_c1h2n1@dab)|dabco
+pair_coeff     8     9       4275.7736       3.3898305       102.89611       1.0848184      0.73006518    # buck6d->(c4_c1h2n1@dab)|dabco/gaussian->(c4_c1h2n1@dab)|dabco <--> buck6d->(h1_c1@dab)|dabco/gaussian->(h1_c1@dab)|dabco
+pair_coeff     9     9            3680               4          32.805      0.10690769      0.97715446    # buck6d->(h1_c1@dab)|dabco/gaussian->(h1_c1@dab)|dabco <--> buck6d->(h1_c1@dab)|dabco/gaussian->(h1_c1@dab)|dabco
+
+bond_style hybrid class2 morse harmonic
+
+bond_coeff    10 class2     1.101000   365.095500  -930.993525  1384.852868    # mm3->(c4_c1h2n1@dab,h1_c1@dab)|dabco
+bond_coeff     9 class2     1.550000   275.530200  -702.602010  1045.120490    # mm3->(c4_c1h2n1@dab,c4_c1h2n1@dab)|dabco
+bond_coeff     1 class2     2.992000    18.056940   -46.045197    68.492231    # mm3->(cu6_cu1n1o4@cu2p,cu6_cu1n1o4@cu2p)|CuPW_dabco
+bond_coeff     3 morse    25.000000    1.066139     2.306000    # morse->(cu6_cu1n1o4@cu2p,n4_c3cu1@dab)|CuPW_dabco
+bond_coeff     4 class2     1.271000   630.266340 -1607.179167  2390.679011    # mm3->(c3_c1o2@co2,o2_c1cu1@co2)|CuPW_dabco
+bond_coeff     8 class2     1.463000   327.830580  -835.967979  1243.502369    # mm3->(c4_c1h2n1@dab,n4_c3cu1@dab)|dabco
+bond_coeff     6 class2     1.394000   509.335200 -1298.804760  1931.972080    # mm3->(c3_c2h1@ph,c3_c2h1@ph)|benzene
+bond_coeff     5 class2     1.489000   358.764780  -914.850189  1360.839656    # mm3->(c3_c1o2@co2,c3_c3@ph)|CuPW_dabco
+bond_coeff     7 class2     1.094000   390.634200  -996.117210  1481.724350    # mm3->(c3_c2h1@ph,h1_c1@ph)|benzene
+bond_coeff     2 morse    50.000000    1.333011     1.953000    # morse->(cu6_cu1n1o4@cu2p,o2_c1cu1@co2)|CuPW_dabco
+
+angle_style hybrid class2/p6 cosine/buck6d
+
+angle_coeff    15 class2/p6      113.920000    40.646100   -32.603900     7.472263    -5.351614     9.636783    # mm3->(c4_c1h2n1@dab,c4_c1h2n1@dab,h1_c1@dab)|dabco
+angle_coeff    15 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    15 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff    11 class2/p6      112.630000    57.120360   -45.818578    10.500845    -7.520676    13.542665    # mm3->(c4_c1h2n1@dab,n4_c3cu1@dab,c4_c1h2n1@dab)|dabco
+angle_coeff    11 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    11 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff     2 class2/p6      180.000000     4.891920    -3.924009     0.899317    -0.644088     1.159825    # mm3->(cu6_cu1n1o4@cu2p,cu6_cu1n1o4@cu2p,n4_c3cu1@dab)|CuPW_dabco
+angle_coeff     2 class2/p6 bb 0.0 1.0 1.0
+angle_coeff     2 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff    14 class2/p6      110.290000    53.091720   -42.587041     9.760231    -6.990250    12.587515    # mm3->(h1_c1@dab,c4_c1h2n1@dab,n4_c3cu1@dab)|dabco
+angle_coeff    14 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    14 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff     8 class2/p6      127.050000    53.307540   -42.760159     9.799907    -7.018666    12.638684    # mm3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph)|benzene
+angle_coeff     8 class2/p6 bb    71.796120     1.394000     1.394000
+angle_coeff     8 class2/p6 ba     6.762360     6.762360     1.394000     1.394000
+angle_coeff     9 class2/p6      120.350000    36.185820   -29.026127     6.652298    -4.764358     8.579296    # mm3->(c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+angle_coeff     9 class2/p6 bb    93.378120     1.394000     1.094000
+angle_coeff     9 class2/p6 ba   -25.179000    53.523360     1.394000     1.094000
+angle_coeff    13 class2/p6      115.180000    66.328680   -53.204948    12.193676    -8.733077    15.725866    # mm3->(c4_c1h2n1@dab,c4_c1h2n1@dab,n4_c3cu1@dab)|dabco
+angle_coeff    13 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    13 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff     7 class2/p6      122.342000    58.271400   -46.741874    10.712448    -7.672226    13.815565    # mm3->(c3_c3@ph,c3_c1o2@co2,o2_c1cu1@co2)|CuPW_dabco
+angle_coeff     7 class2/p6 bb 0.0 1.0 1.0
+angle_coeff     7 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff    12 class2/p6      110.000000     0.000000    -0.000000     0.000000    -0.000000     0.000000    # mm3->(c4_c1h2n1@dab,n4_c3cu1@dab,cu6_cu1n1o4@cu2p)|CuPW_dabco
+angle_coeff    12 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    12 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff     6 class2/p6      123.027000   107.981940   -86.616732    19.851093   -14.217298    25.601437    # mm3->(o2_c1cu1@co2,c3_c1o2@co2,o2_c1cu1@co2)|CuPW_dabco
+angle_coeff     6 class2/p6 bb 0.0 1.0 1.0
+angle_coeff     6 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff     3 cosine/buck6d       2.374020     4   180.000000    # fourier->(o2_c1cu1@co2,cu6_cu1n1o4@cu2p,o2_c1cu1@co2)|CuPW_dabco
+angle_coeff    10 class2/p6      115.566000    61.436760   -49.280939    11.294359    -8.088989    14.566041    # mm3->(c3_c1o2@co2,c3_c3@ph,c3_c2h1@ph)|CuPW_dabco
+angle_coeff    10 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    10 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff     4 cosine/buck6d       0.791340     4   180.000000    # fourier->(n4_c3cu1@dab,cu6_cu1n1o4@cu2p,o2_c1cu1@co2)|CuPW_dabco
+angle_coeff    16 class2/p6      110.570000    33.883740   -27.179534     6.229090    -4.461257     8.033495    # mm3->(h1_c1@dab,c4_c1h2n1@dab,h1_c1@dab)|dabco
+angle_coeff    16 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    16 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff     1 class2/p6       80.000000     0.000000    -0.000000     0.000000    -0.000000     0.000000    # mm3->(cu6_cu1n1o4@cu2p,cu6_cu1n1o4@cu2p,o2_c1cu1@co2)|CuPW_dabco
+angle_coeff     1 class2/p6 bb 0.0 1.0 1.0
+angle_coeff     1 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff     5 class2/p6      114.972000    26.401980   -21.178108     4.853665    -3.476181     6.259645    # mm3->(c3_c1o2@co2,o2_c1cu1@co2,cu6_cu1n1o4@cu2p)|CuPW_dabco
+angle_coeff     5 class2/p6 bb 0.0 1.0 1.0
+angle_coeff     5 class2/p6 ba 0.0 0.0 1.0 1.0
+
+dihedral_style hybrid opls class2
+
+dihedral_coeff     4 opls     0.000000     0.000000     0.000000     0.000000    # cos3->(cu6_cu1n1o4@cu2p,cu6_cu1n1o4@cu2p,o2_c1cu1@co2,c3_c1o2@co2)|CuPW_dabco
+dihedral_coeff    10 opls     0.000000     0.000000     0.000000     0.000000    # cos3->(c3_c3@ph,c3_c1o2@co2,o2_c1cu1@co2,cu6_cu1n1o4@cu2p)|CuPW_dabco
+dihedral_coeff    19 opls     0.000000     0.000000     0.000000     0.000000    # cos3->(c4_c1h2n1@dab,c4_c1h2n1@dab,n4_c3cu1@dab,cu6_cu1n1o4@cu2p)|CuPW_dabco
+dihedral_coeff    22 opls     0.000000     3.010000     1.426000     0.000000    # cos3->(n4_c3cu1@dab,c4_c1h2n1@dab,c4_c1h2n1@dab,n4_c3cu1@dab)|dabco
+dihedral_coeff    21 opls     0.000000     0.000000     1.011000     0.000000    # cos3->(h1_c1@dab,c4_c1h2n1@dab,c4_c1h2n1@dab,n4_c3cu1@dab)|dabco
+dihedral_coeff     5 opls     0.000000     0.000000     0.000000     0.000000    # cos3->(o2_c1cu1@co2,cu6_cu1n1o4@cu2p,o2_c1cu1@co2,c3_c1o2@co2)|CuPW_dabco
+dihedral_coeff    15 opls     0.000000     0.000000     0.000000     0.000000    # cos3->(c3_c2h1@ph,c3_c2h1@ph,c3_c3@ph,c3_c1o2@co2)|CuPW_dabco
+dihedral_coeff     7 opls     0.000000     0.000000     0.000000     0.000000    # cos3->(cu6_cu1n1o4@cu2p,cu6_cu1n1o4@cu2p,n4_c3cu1@dab,c4_c1h2n1@dab)|CuPW_dabco
+dihedral_coeff    11 opls     0.000000     1.966000     0.000000     0.000000    # cos3->(o2_c1cu1@co2,c3_c1o2@co2,c3_c3@ph,c3_c2h1@ph)|CuPW_dabco
+dihedral_coeff     1 opls     0.000000     0.321000    -0.143000    -0.527000    # cos4->(o2_c1cu1@co2,cu6_cu1n1o4@cu2p,cu6_cu1n1o4@cu2p,o2_c1cu1@co2)|CuPW_dabco
+dihedral_coeff    12 opls     0.000000     4.379000     0.000000     0.000000    # cos3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph)|benzene
+dihedral_coeff     3 opls     0.000000     0.000000     0.000000     0.000000    # cos3->(n4_c3cu1@dab,cu6_cu1n1o4@cu2p,cu6_cu1n1o4@cu2p,n4_c3cu1@dab)|CuPW_dabco
+dihedral_coeff    17 opls     0.492940     0.034000     2.660000     0.000000    # cos3->(c4_c1h2n1@dab,c4_c1h2n1@dab,n4_c3cu1@dab,c4_c1h2n1@dab)|dabco
+dihedral_coeff     2 opls     0.000000     0.000000     0.000000     0.000000    # cos3->(n4_c3cu1@dab,cu6_cu1n1o4@cu2p,cu6_cu1n1o4@cu2p,o2_c1cu1@co2)|CuPW_dabco
+dihedral_coeff    16 opls     0.000000     5.073000     0.000000     0.000000    # cos3->(h1_c1@ph,c3_c2h1@ph,c3_c3@ph,c3_c1o2@co2)|CuPW_dabco
+dihedral_coeff    18 opls     0.490000     1.238000     0.217000     0.000000    # cos3->(h1_c1@dab,c4_c1h2n1@dab,n4_c3cu1@dab,c4_c1h2n1@dab)|dabco
+dihedral_coeff    23 opls     0.000000     0.000000     0.399000     0.000000    # cos3->(h1_c1@dab,c4_c1h2n1@dab,c4_c1h2n1@dab,h1_c1@dab)|dabco
+dihedral_coeff     6 opls     0.000000     0.000000     0.000000     0.000000    # cos3->(n4_c3cu1@dab,cu6_cu1n1o4@cu2p,o2_c1cu1@co2,c3_c1o2@co2)|CuPW_dabco
+dihedral_coeff    13 opls     0.000000     6.316000     0.000000     0.000000    # cos3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+dihedral_coeff    20 opls     0.000000     0.000000     0.000000     0.000000    # cos3->(h1_c1@dab,c4_c1h2n1@dab,n4_c3cu1@dab,cu6_cu1n1o4@cu2p)|CuPW_dabco
+dihedral_coeff     8 opls     0.000000     0.000000     0.000000     0.000000    # cos3->(o2_c1cu1@co2,cu6_cu1n1o4@cu2p,n4_c3cu1@dab,c4_c1h2n1@dab)|CuPW_dabco
+dihedral_coeff     9 opls     0.000000     5.604000     0.000000     0.000000    # cos3->(o2_c1cu1@co2,c3_c1o2@co2,o2_c1cu1@co2,cu6_cu1n1o4@cu2p)|CuPW_dabco
+dihedral_coeff    14 opls     0.000000     5.972000     0.000000     0.000000    # cos3->(h1_c1@ph,c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+
+improper_style inversion/harmonic
+
+improper_coeff     1    30.646440     0.000000    # harm->(c3_c1o2@co2,c3_c3@ph,o2_c1cu1@co2,o2_c1cu1@co2)|CuPW_dabco
+improper_coeff     2     4.100580     0.000000    # harm->(c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+improper_coeff     3    15.539040     0.000000    # harm->(c3_c3@ph,c3_c1o2@co2,c3_c2h1@ph,c3_c2h1@ph)|CuPW_dabco
+
+special_bonds lj 0.00 0.00 1.00 coul 1.00 1.00 1.00
+
+# ------------------------ MOF-FF FORCE FIELD END --------------------------
