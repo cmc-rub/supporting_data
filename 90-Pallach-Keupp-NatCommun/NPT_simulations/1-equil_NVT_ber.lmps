@@ -1,0 +1,9 @@
+timestep     1.000000
+dump equil_NVT_ber_dump all custom 1000 equil_NVT_ber.dump id type element xu yu zu
+dump_modify equil_NVT_ber_dump element Zn H H C C C C C C C O O O
+velocity all create    10.000000 1581002512 rot yes dist gaussian
+fix equil_NVT_ber all temp/berendsen    10.000000   300.000000 10
+fix equil_NVT_ber_nve all nve
+thermo_style custom step evdwl ecoul elong ebond eangle eimp edihed pe ke etotal temp press vol spcpu
+thermo 100
+run 100000

@@ -1,0 +1,181 @@
+HASH: 5c4dbde9-0c35-4e5e-a7ca-20353477e191
+FF JULIAN-FF
+
+cutoff          12.0
+coul12          1.0
+radfact         1.0
+epsrule         geometric
+vdwtype         exp6_damped
+coreshell       False
+vdw12           0.0
+vdw14           1.0
+coul14          1.0
+coul13          1.0
+chargetype      gaussian
+radrule         arithmetic
+vdw13           0.0
+
+# Supported bnd potentials mm3, quartic, morse
+# mm3:     E(r) = 1/2 k(r-r0)^2*[1-2.55(r-r0)+7/12(2.55(r-r0))^2]
+#          r0 in A, k in mdyn/A
+#          mm3 k r0
+# morse:   E(r) = (1/2a^2)*k*[1-e^(-a(r-r0))] with Ed = k/2a^2
+#          r0 in A, k in mdyn/A, Ed in kcal/mol
+#          morse k r Ed
+# quartic: E(r) = 1/2 k(r-r0)^2*[1-k2(r-r0)+k3(k2(r-r0))^2]
+#          r0 in A, k in mdyn/A, k2 in A^-1 and k3 is unitlesl
+#          quartic k r0 k2 k3
+bnd_type 14
+1                      mm3      8.63200000      1.27500000           # mm3->(c3_c1o2@co2,o2_c1zn1@co2)|Zn4O_benz
+2                    morse      1.66500000      1.91700000     50.00000000           # morse->(o2_c1zn1@co2,zn4_o4@zn4o)|Zn4O_benz
+3                      mm3      4.93700000      1.48800000           # mm3->(c3_c1o2@co2,c3_c3@ph)|Zn4O_benz
+4                      mm3      4.98217740      1.10103178           # mm3->(c4_c1h2o1@me,h1_c1@me)|ph-O-prop
+5                      mm3      4.17290061      1.42752833           # mm3->(c4_c1h2o1@me,o2_c2@eth)|ph-O-prop
+6                      mm3      5.08639454      1.10121283           # mm3->(c4_c2h2@me,h1_c1@me)|propane
+7                      mm3      4.06192523      1.51663391           # mm3->(c4_c1h2o1@me,c4_c2h2@me)|ph-O-prop
+8                      mm3      5.43000000      1.09400000           # mm3->(c3_c2h1@ph,h1_c1@ph)|benzene
+9                      mm3      4.42913379      1.52918220           # mm3->(c4_c1h3@me,c4_c2h2@me)|propane
+10                     mm3      6.43968656      1.39412205           # mm3->(c3_c2h1@ph,c3_c2o1@ph)|ph-O-prop
+11                     mm3      5.21046897      1.09938986           # mm3->(c4_c1h3@me,h1_c1@me)|propane
+12                     mm3      5.55926068      1.35921074           # mm3->(c3_c2o1@ph,o2_c2@eth)|ph-O-prop
+13                     mm3      7.08000000      1.39400000           # mm3->(c3_c2h1@ph,c3_c2h1@ph)|benzene
+14                   morse      1.48900000      1.98700000     50.00000000           # morse->(o4_zn4@zn4o,zn4_o4@zn4o)|Zn4O_benz
+
+# Supported ang potentials mm3, fourier, quartic, strbnd
+# mm3:     E(a) = 1/2 k(a-a0)^2*[1-0.014(a-a0)+5.6e-5(a-a0)^2-7e-7(a-a0)^3+2.2e-8(a-a0)^4]
+#          a0 in deg, k in mdyn/(A*rad)
+#          mm3 k a0
+# fourier: E(r) = V/a[1+cos(n*a+a0)]
+#          a0 in deg, V in kcal/mol, n is unitless
+#          fourier V a0 n 1.0 1.0
+# quartic: E(a) = 1/2 k(a-a0)^2*[1-k2(a-a0)+k3(k2(a-a0))^2]
+#          a0 in deg, k in mdyn/(A*rad), k2 in 1/rad, and k3 is unitless
+#          quartic k a0 k2 k3
+# strbnd:  E(r1,r2,a) = kss(r1-r10)(r2-r20)+(a-a0)*[ksb1*(r1-r10)+ksb2(r2-r20)]
+#          r10, r20 in A, a in deg, kss in mdyn/A, ksb1 and ksb2 in mdyn/(rad*A)
+#          strbnd ksb1 ksb2 kss r10 r20 a0
+ang_type 27
+1                      mm3      0.69800000    103.99200000           # mm3->(zn4_o4@zn4o,o4_zn4@zn4o,zn4_o4@zn4o)|Zn4O_benz
+1                   strbnd      0.12800000      0.12800000      0.05300000      1.98700000      1.98700000    103.99200000           # strbnd->(zn4_o4@zn4o,o4_zn4@zn4o,zn4_o4@zn4o)|Zn4O_benz
+2                      mm3      0.80600000    117.29600000           # mm3->(c3_c1o2@co2,c3_c3@ph,c3_c2o1@ph)|Zn4O_benz
+3                      mm3      0.80600000    117.29600000           # mm3->(c3_c1o2@co2,c3_c3@ph,c3_c2h1@ph)|Zn4O_benz
+4                      mm3      0.38816207    117.11561691           # mm3->(h1_c1@me,c4_c1h2o1@me,h1_c1@me)|ph-O-prop
+5                   strbnd     -0.17500000      0.37200000      0.64900000      1.39400000      1.09400000    120.35000000           # strbnd->(c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+5                      mm3      0.50300000    120.35000000           # mm3->(c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+6                      mm3      0.54015833    107.27101457           # mm3->(h1_c1@me,c4_c2h2@me,h1_c1@me)|propane
+7                   strbnd      0.00000000      0.00000000      0.00000000      1.91700000      1.98700000    113.58400000           # strbnd->(o2_c1zn1@co2,zn4_o4@zn4o,o4_zn4@zn4o)|Zn4O_benz
+7                      mm3      0.00000000    113.58400000           # mm3->(o2_c1zn1@co2,zn4_o4@zn4o,o4_zn4@zn4o)|Zn4O_benz
+8                      mm3      0.96724481    113.35812550           # mm3->(c3_c2o1@ph,o2_c2@eth,c4_c1h2o1@me)|ph-O-prop
+9                      mm3      0.62495122    110.95994913           # mm3->(c4_c2h2@me,c4_c1h3@me,h1_c1@me)|propane
+10                     mm3      1.21110797    117.58425594           # mm3->(c3_c2h1@ph,c3_c2o1@ph,c3_c2h1@ph)|ph-O-prop
+11                     mm3      0.99812674    107.99998282           # mm3->(c3_c2h1@ph,c3_c2o1@ph,o2_c2@eth)|ph-O-prop
+12                     mm3      0.38978437    120.24797744           # mm3->(c4_c2h2@me,c4_c1h2o1@me,h1_c1@me)|ph-O-prop
+13                     mm3      0.91436861    113.16146445           # mm3->(c4_c1h2o1@me,c4_c2h2@me,c4_c1h3@me)|propane
+14                     mm3      0.43354763    116.36720188           # mm3->(c4_c2h2@me,c4_c1h2o1@me,o2_c2@eth)|ph-O-prop
+15                     mm3      0.72110984    125.52485413           # mm3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2o1@ph)|ph-O-prop
+16                     mm3      1.07300000    116.36800000           # mm3->(c3_c3@ph,c3_c1o2@co2,o2_c1zn1@co2)|Zn4O_benz
+17                     mm3      0.28186131    120.25265342           # mm3->(h1_c1@me,c4_c1h2o1@me,o2_c2@eth)|ph-O-prop
+18                     mm3      0.08000000    123.10300000           # mm3->(o2_c1zn1@co2,zn4_o4@zn4o,o2_c1zn1@co2)|Zn4O_benz
+19                     mm3      0.09400000    135.60600000           # mm3->(c3_c1o2@co2,o2_c1zn1@co2,zn4_o4@zn4o)|Zn4O_benz
+20                     mm3      0.52086360    107.69128618           # mm3->(h1_c1@me,c4_c1h3@me,h1_c1@me)|propane
+21                     mm3      1.55500000    123.00600000           # mm3->(o2_c1zn1@co2,c3_c1o2@co2,o2_c1zn1@co2)|Zn4O_benz
+22                     mm3      0.32774222    118.00106769           # mm3->(c3_c2o1@ph,c3_c2h1@ph,h1_c1@ph)|ph-O-prop
+23                     mm3      0.40278711    110.45201647           # mm3->(c4_c1h2o1@me,c4_c2h2@me,h1_c1@me)|ph-O-prop
+24                     mm3      0.61310813    110.60253983           # mm3->(c4_c1h3@me,c4_c2h2@me,h1_c1@me)|propane
+
+# Supported oop potentials harm
+# harm:    E(d) = k/2*(d-d0)**2
+#          k in mdyn/(rad*A), d0 in deg
+#          harm k d0
+# cos4:    E(d) = Va/2[1+cos(d)]+Vb/2[1-cos(d)]+Vc/2[1+cos(d)]+Vd/2[1-cos(d)]
+#          Va, Vb, Vd and Vc in kcal/mol
+#          cos4 Va Vb Vc Vd
+oop_type 4
+1                     harm       0.0000000      0.00000000           # harm->(c3_c2h1@ph,c3_c1o2@co2,c3_c2h1@ph,c3_c2o1@ph)|xxx
+2                     harm      0.12806092      0.00000000           # harm->(c3_c2o1@ph,c3_c2h1@ph,c3_c2h1@ph,o2_c2@eth)|ph-O-prop
+3                     harm      0.01555178      0.00000000           # harm->(c3_c2h1@ph,c3_c2h1@ph,c3_c2o1@ph,h1_c1@ph)|ph-O-prop
+4                     harm      0.18800000      0.00000000           # harm->(c3_c1o2@co2,c3_c3@ph,o2_c1zn1@co2,o2_c1zn1@co2)|Zn4O_benz
+
+
+chapr_type 0
+
+# Suppoerted types
+# buck6d: ep in kcal/mol, r0 in A
+#         buck r0 ep
+vdw_type 12
+1                   buck6d      2.29000000      0.27600000           # buck6d->(zn4_o4@zn4o)|Zn4O_benz
+2                   buck6d      1.50000000      0.02000000           # buck6d->(h1_c1@ph)|benzene
+3                   buck6d      1.50000000      0.02000000           # buck6d->(h1_c1@me)|propane
+4                   buck6d      1.94000000      0.05600000           # buck6d->(c3_c1o2@co2)|Zn4O_benz
+5                   buck6d      2.04000000      0.02700000           # buck6d->(c4_c2h2@me)|propane
+6                   buck6d      1.82000000      0.05900000           # buck6d->(o2_c1zn1@co2)|Zn4O_benz
+7                   buck6d      1.96000000      0.05600000           # buck6d->(c3_c2h1@ph)|benzene
+8                   buck6d      1.82000000      0.05900000           # buck6d->(o2_c2@eth)|ph-O-prop
+9                   buck6d      1.96000000      0.05600000           # buck6d->(c3_c2o1@ph)|ph-O-prop
+10                  buck6d      1.82000000      0.05900000           # buck6d->(o4_zn4@zn4o)|Zn4O_benz
+11                  buck6d      2.04000000      0.02700000           # buck6d->(c4_c1h2o1@me)|ph-O-prop
+12                  buck6d      2.04000000      0.02700000           # buck6d->(c4_c1h3@me)|propane
+
+# Supported dih potentials cos3, cos4
+# cos3:    E(d) = Va/2[1+cos(d)]+Vb/2[1-cos(d)]+Vc/2[1+cos(d)]
+#          Va, Vb and Vc in kcal/mol
+#          cos3 Va Vb Vc
+# cos4:    E(d) = Va/2[1+cos(d)]+Vb/2[1-cos(d)]+Vc/2[1+cos(d)]+Vd/2[1-cos(d)]
+#          Va, Vb, Vd and Vc in kcal/mol
+#          cos4 Va Vb Vc Vd
+dih_type 27
+1                     cos3     -1.64225304     -0.18448109      1.39821161           # cos3->(o2_c2@eth,c4_c1h2o1@me,c4_c2h2@me,c4_c1h3@me)|ph-O-prop
+2                     cos3      0.00000000      1.90200000      0.00000000           # cos3->(o2_c1zn1@co2,c3_c1o2@co2,c3_c3@ph,c3_c2h1@ph)|Zn4O_benz
+3                     cos3      4.80435043      2.66314607      0.16910921           # cos3->(c3_c2h1@ph,c3_c2o1@ph,o2_c2@eth,c4_c1h2o1@me)|ph-O-prop
+4                     cos3      0.00000000      0.00000000      0.87047665           # cos3->(h1_c1@me,c4_c1h3@me,c4_c2h2@me,c4_c1h2o1@me)|propane
+5                     cos3      0.00000000      0.00000000      0.34307621           # cos3->(h1_c1@me,c4_c1h3@me,c4_c2h2@me,h1_c1@me)|propane
+6                     cos3      0.00000000      3.01200000      0.00000000           # cos3->(c3_c3@ph,c3_c1o2@co2,o2_c1zn1@co2,zn4_o4@zn4o)|Zn4O_benz
+7                     cos3      0.00000000      0.00000000      0.00000000           # cos3->(c3_c2h1@ph,c3_c2o1@ph,c3_c3@ph,c3_c1o2@co2)|Zn4O_benz
+8                     cos3      0.00000000      6.28154200      0.00000000           # cos3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2o1@ph,o2_c2@eth)|ph-O-prop
+9                     cos3      0.00000000      5.17185369      0.00000000           # cos3->(h1_c1@ph,c3_c2h1@ph,c3_c2o1@ph,c3_c2h1@ph)|ph-O-prop
+10                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(c3_c2o1@ph,c3_c2h1@ph,c3_c3@ph,c3_c1o2@co2)|Zn4O_benz
+11                    cos3      0.00000000      0.00000000      0.02149459           # cos3->(h1_c1@me,c4_c1h2o1@me,o2_c2@eth,c3_c2o1@ph)|ph-O-prop
+12                    cos3      0.00000000      5.97200000      0.00000000           # cos3->(c3_c2o1@ph,c3_c2h1@ph,c3_c2h1@ph,c3_c2o1@ph)|ph-O-prop
+13                    cos3      0.00000000      5.87643948      0.00000000           # cos3->(c3_c2o1@ph,c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|ph-O-prop
+14                    cos3      0.00000000      3.87775137      0.00000000           # cos3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2o1@ph,c3_c2h1@ph)|ph-O-prop
+15                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(c3_c1o2@co2,o2_c1zn1@co2,zn4_o4@zn4o,o2_c1zn1@co2)|Zn4O_benz
+16                    cos3      0.00000000      5.00000000      0.00000000           # cos3->(c3_c1o2@co2,c3_c2h1@ph,c3_c2o1@ph,o2_c2@eth)|co2-ph-o-me
+17                    cos3      0.00000000      0.00000000      0.32397393           # cos3->(o2_c2@eth,c4_c1h2o1@me,c4_c2h2@me,h1_c1@me)|ph-O-prop
+18                    cos3      0.00000000      5.97200000      0.00000000           # cos3->(c3_c2h1@ph,c3_c2o1@ph,c3_c2h1@ph,c3_c2h1@ph)|ph-O-prop
+19                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(zn4_o4@zn4o,o4_zn4@zn4o,zn4_o4@zn4o,o2_c1zn1@co2)|Zn4O_benz
+20                    cos3      0.00000000      0.07600000      0.00000000           # cos3->(o2_c1zn1@co2,c3_c1o2@co2,o2_c1zn1@co2,zn4_o4@zn4o)|Zn4O_benz
+21                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(h1_c1@ph,c3_c2h1@ph,c3_c3@ph,c3_c1o2@co2)|Zn4O_benz
+22                    cos3      1.06805497     -0.73771460      1.31268176           # cos3->(c4_c2h2@me,c4_c1h2o1@me,o2_c2@eth,c3_c2o1@ph)|ph-O-prop
+23                    cos3      0.00000000      4.36935109      0.00000000           # cos3->(h1_c1@ph,c3_c2h1@ph,c3_c2o1@ph,o2_c2@eth)|ph-O-prop
+24                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(c3_c1o2@co2,o2_c1zn1@co2,zn4_o4@zn4o,o4_zn4@zn4o)|Zn4O_benz
+25                    cos3      0.00000000      0.00000000      0.11177348           # cos3->(h1_c1@me,c4_c1h2o1@me,c4_c2h2@me,c4_c1h3@me)|ph-O-prop
+26                    cos3      0.00000000      0.00000000      0.18773630           # cos3->(h1_c1@me,c4_c1h2o1@me,c4_c2h2@me,h1_c1@me)|ph-O-prop
+27                    cos3      0.00000000      1.90200000      0.00000000           # cos3->(o2_c1zn1@co2,c3_c1o2@co2,c3_c3@ph,c3_c2o1@ph)|Zn4O_benz
+
+
+vdwpr_type 0
+
+# Supported charge types
+# gaussian: q in e-, w in A
+#           gaussian q w 
+cha_type 13
+1                 gaussian     -0.72000000      1.11760000           # gaussian->(o2_c1zn1@co2)|Zn4O_benz
+2                 gaussian     -0.18000000      1.16298600           # gaussian->(c4_c1h3@me)|propane
+3                 gaussian      0.61000000      1.16300000           # gaussian->(c3_c1o2@co2)|Zn4O_benz
+4                 gaussian     -0.05643600      1.16298600           # gaussian->(c3_c2o1@ph)|ph-O-prop
+5                 gaussian     -1.78000000      1.11760000           # gaussian->(o4_zn4@zn4o)|Zn4O_benz
+6                 gaussian      0.18000000      1.16300000           # gaussian->(c3_c3@ph)|Zn4O_benz
+7                 gaussian     -0.12000000      1.16298600           # gaussian->(c3_c2h1@ph)|benzene
+8                 gaussian      0.06541100      1.16298600           # gaussian->(c4_c1h2o1@me)|ph-O-prop
+9                 gaussian      0.06000000      0.72363800           # gaussian->(h1_c1@me)|propane
+10                gaussian      1.42000000      2.07330000           # gaussian->(zn4_o4@zn4o)|Zn4O_benz
+11                gaussian     -0.12000000      1.16298600           # gaussian->(c4_c2h2@me)|propane
+12                gaussian     -0.12897400      1.11755300           # gaussian->(o2_c2@eth)|ph-O-prop
+13                gaussian      0.12000000      0.72363800           # gaussian->(h1_c1@ph)|benzene
+
+azone 
+
+refsysname xxx
+
+variables 1
+     $o1_0      1.00000000      0.00000000      1.00000000   z   i

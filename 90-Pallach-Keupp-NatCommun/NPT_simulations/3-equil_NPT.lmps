@@ -1,0 +1,8 @@
+timestep     1.000000
+dump equil_npt_dump all custom 1000 equil_npt.dump id type element xu yu zu
+dump_modify equil_npt_dump element Zn H H C C C C C C C O O O
+fix equil_npt_mttknhc all mttknhc temp 300.0000 300.0000 100.0000 tri     0.000000     0.000000  1000.000000 volconstraint yes
+fix_modify equil_npt_mttknhc energy yes
+thermo_style custom step evdwl ecoul elong ebond eangle eimp edihed pe ke etotal temp press vol cella cellb cellc cellalpha cellbeta cellgamma pxx pyy pzz pxy pxz pyz enthalpy spcpu
+thermo 100
+run 250000
