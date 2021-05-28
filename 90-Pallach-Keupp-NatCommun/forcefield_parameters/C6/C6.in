@@ -1,0 +1,256 @@
+clear
+units real
+boundary p p p
+atom_style full
+box tilt large
+read_data MOF-5-C6_rhombohedral_cell_01110001.data
+
+neighbor 2.0 bin
+
+
+# ------------------------ MOF-FF FORCE FIELD ------------------------------
+
+kspace_style ewald      1e-06
+pair_style buck6d/coul/gauss/long     0.9000     0.9000    12.0000
+
+pair_coeff     1     1           50784       2.6200873       5731.7134        39.94184      0.34105377    # buck6d->(zn4_o4@zn4o)|Zn4O_benz/gaussian->(zn4_o4@zn4o)|Zn4O_benz <--> buck6d->(zn4_o4@zn4o)|Zn4O_benz/gaussian->(zn4_o4@zn4o)|Zn4O_benz
+pair_coeff     1     2       13670.593       3.1662269       495.43572       2.8200727      0.45538243    # buck6d->(zn4_o4@zn4o)|Zn4O_benz/gaussian->(zn4_o4@zn4o)|Zn4O_benz <--> buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene
+pair_coeff     1     3       13670.593       3.1662269       495.43572       2.8200727      0.45538243    # buck6d->(zn4_o4@zn4o)|Zn4O_benz/gaussian->(zn4_o4@zn4o)|Zn4O_benz <--> buck6d->(h1_c1@me)|butane/gaussian->(h1_c1@me)|butane
+pair_coeff     1     4       22875.278       2.8235294       1648.4078        14.02027      0.42066066    # buck6d->(zn4_o4@zn4o)|Zn4O_benz/gaussian->(zn4_o4@zn4o)|Zn4O_benz <--> buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|Zn4O_benz
+pair_coeff     1     5       22875.278       2.8235294       1648.4078        14.02027      0.42066187    # buck6d->(zn4_o4@zn4o)|Zn4O_benz/gaussian->(zn4_o4@zn4o)|Zn4O_benz <--> buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene
+pair_coeff     1     6       22875.278       2.8235294       1648.4078        14.02027      0.42066187    # buck6d->(zn4_o4@zn4o)|Zn4O_benz/gaussian->(zn4_o4@zn4o)|Zn4O_benz <--> buck6d->(c3_c2o1@ph)|ph-O-butyl/gaussian->(c3_c2o1@ph)|ph-O-butyl
+pair_coeff     1     7       22875.278       2.8368794       1602.4086       13.124311      0.42066066    # buck6d->(zn4_o4@zn4o)|Zn4O_benz/gaussian->(zn4_o4@zn4o)|Zn4O_benz <--> buck6d->(c3_c1o2@co2)|Zn4O_benz/gaussian->(c3_c1o2@co2)|Zn4O_benz
+pair_coeff     1     8       15883.794       2.7713626       1280.1071       18.202956      0.42066187    # buck6d->(zn4_o4@zn4o)|Zn4O_benz/gaussian->(zn4_o4@zn4o)|Zn4O_benz <--> buck6d->(c4_c2h2@me)|butane/gaussian->(c4_c2h2@me)|butane
+pair_coeff     1     9       15883.794       2.7713626       1280.1071       18.202956      0.42066187    # buck6d->(zn4_o4@zn4o)|Zn4O_benz/gaussian->(zn4_o4@zn4o)|Zn4O_benz <--> buck6d->(c4_c1h2o1@me)|ph-O-butyl/gaussian->(c4_c1h2o1@me)|ph-O-butyl
+pair_coeff     1    10       15883.794       2.7713626       1280.1071       18.202956      0.42066187    # buck6d->(zn4_o4@zn4o)|Zn4O_benz/gaussian->(zn4_o4@zn4o)|Zn4O_benz <--> buck6d->(c4_c1h3@me)|butane/gaussian->(c4_c1h3@me)|butane
+pair_coeff     1    11       23480.015        2.919708       1383.9296       8.7719648      0.42456807    # buck6d->(zn4_o4@zn4o)|Zn4O_benz/gaussian->(zn4_o4@zn4o)|Zn4O_benz <--> buck6d->(o4_zn4@zn4o)|Zn4O_benz/gaussian->(o4_zn4@zn4o)|Zn4O_benz
+pair_coeff     1    12       23480.015        2.919708       1383.9296       8.7719648      0.42457209    # buck6d->(zn4_o4@zn4o)|Zn4O_benz/gaussian->(zn4_o4@zn4o)|Zn4O_benz <--> buck6d->(o2_c2@eth)|ph-O-butyl/gaussian->(o2_c2@eth)|ph-O-butyl
+pair_coeff     1    13       23480.015        2.919708       1383.9296       8.7719648      0.42456807    # buck6d->(zn4_o4@zn4o)|Zn4O_benz/gaussian->(zn4_o4@zn4o)|Zn4O_benz <--> buck6d->(o2_c1zn1@co2)|Zn4O_benz/gaussian->(o2_c1zn1@co2)|Zn4O_benz
+pair_coeff     2     2            3680               4          32.805      0.10690769       0.9771554    # buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene <--> buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene
+pair_coeff     2     3            3680               4          32.805      0.10690769       0.9771554    # buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene <--> buck6d->(h1_c1@me)|butane/gaussian->(h1_c1@me)|butane
+pair_coeff     2     4       6157.8178       3.4682081       129.19572      0.78772886      0.73005908    # buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene <--> buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|Zn4O_benz
+pair_coeff     2     5       6157.8178       3.4682081       129.19572      0.78772886      0.73006542    # buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene <--> buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene
+pair_coeff     2     6       6157.8178       3.4682081       129.19572      0.78772886      0.73006542    # buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene <--> buck6d->(c3_c2o1@ph)|ph-O-butyl/gaussian->(c3_c2o1@ph)|ph-O-butyl
+pair_coeff     2     7       6157.8178       3.4883721        124.7792      0.72632262      0.73005908    # buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene <--> buck6d->(c3_c1o2@co2)|Zn4O_benz/gaussian->(c3_c1o2@co2)|Zn4O_benz
+pair_coeff     2     8       4275.7736       3.3898305       102.89611       1.0848184      0.73006542    # buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene <--> buck6d->(c4_c2h2@me)|butane/gaussian->(c4_c2h2@me)|butane
+pair_coeff     2     9       4275.7736       3.3898305       102.89611       1.0848184      0.73006542    # buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene <--> buck6d->(c4_c1h2o1@me)|ph-O-butyl/gaussian->(c4_c1h2o1@me)|ph-O-butyl
+pair_coeff     2    10       4275.7736       3.3898305       102.89611       1.0848184      0.73006542    # buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene <--> buck6d->(c4_c1h3@me)|butane/gaussian->(c4_c1h3@me)|butane
+pair_coeff     2    11       6320.6076       3.6144578       103.50278      0.44181916      0.75107727    # buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene <--> buck6d->(o4_zn4@zn4o)|Zn4O_benz/gaussian->(o4_zn4@zn4o)|Zn4O_benz
+pair_coeff     2    12       6320.6076       3.6144578       103.50278      0.44181916      0.75109952    # buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene <--> buck6d->(o2_c2@eth)|ph-O-butyl/gaussian->(o2_c2@eth)|ph-O-butyl
+pair_coeff     2    13       6320.6076       3.6144578       103.50278      0.44181916      0.75107727    # buck6d->(h1_c1@ph)|benzene/gaussian->(h1_c1@ph)|benzene <--> buck6d->(o2_c1zn1@co2)|Zn4O_benz/gaussian->(o2_c1zn1@co2)|Zn4O_benz
+pair_coeff     3     3            3680               4          32.805      0.10690769       0.9771554    # buck6d->(h1_c1@me)|butane/gaussian->(h1_c1@me)|butane <--> buck6d->(h1_c1@me)|butane/gaussian->(h1_c1@me)|butane
+pair_coeff     3     4       6157.8178       3.4682081       129.19572      0.78772886      0.73005908    # buck6d->(h1_c1@me)|butane/gaussian->(h1_c1@me)|butane <--> buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|Zn4O_benz
+pair_coeff     3     5       6157.8178       3.4682081       129.19572      0.78772886      0.73006542    # buck6d->(h1_c1@me)|butane/gaussian->(h1_c1@me)|butane <--> buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene
+pair_coeff     3     6       6157.8178       3.4682081       129.19572      0.78772886      0.73006542    # buck6d->(h1_c1@me)|butane/gaussian->(h1_c1@me)|butane <--> buck6d->(c3_c2o1@ph)|ph-O-butyl/gaussian->(c3_c2o1@ph)|ph-O-butyl
+pair_coeff     3     7       6157.8178       3.4883721        124.7792      0.72632262      0.73005908    # buck6d->(h1_c1@me)|butane/gaussian->(h1_c1@me)|butane <--> buck6d->(c3_c1o2@co2)|Zn4O_benz/gaussian->(c3_c1o2@co2)|Zn4O_benz
+pair_coeff     3     8       4275.7736       3.3898305       102.89611       1.0848184      0.73006542    # buck6d->(h1_c1@me)|butane/gaussian->(h1_c1@me)|butane <--> buck6d->(c4_c2h2@me)|butane/gaussian->(c4_c2h2@me)|butane
+pair_coeff     3     9       4275.7736       3.3898305       102.89611       1.0848184      0.73006542    # buck6d->(h1_c1@me)|butane/gaussian->(h1_c1@me)|butane <--> buck6d->(c4_c1h2o1@me)|ph-O-butyl/gaussian->(c4_c1h2o1@me)|ph-O-butyl
+pair_coeff     3    10       4275.7736       3.3898305       102.89611       1.0848184      0.73006542    # buck6d->(h1_c1@me)|butane/gaussian->(h1_c1@me)|butane <--> buck6d->(c4_c1h3@me)|butane/gaussian->(c4_c1h3@me)|butane
+pair_coeff     3    11       6320.6076       3.6144578       103.50278      0.44181916      0.75107727    # buck6d->(h1_c1@me)|butane/gaussian->(h1_c1@me)|butane <--> buck6d->(o4_zn4@zn4o)|Zn4O_benz/gaussian->(o4_zn4@zn4o)|Zn4O_benz
+pair_coeff     3    12       6320.6076       3.6144578       103.50278      0.44181916      0.75109952    # buck6d->(h1_c1@me)|butane/gaussian->(h1_c1@me)|butane <--> buck6d->(o2_c2@eth)|ph-O-butyl/gaussian->(o2_c2@eth)|ph-O-butyl
+pair_coeff     3    13       6320.6076       3.6144578       103.50278      0.44181916      0.75107727    # buck6d->(h1_c1@me)|butane/gaussian->(h1_c1@me)|butane <--> buck6d->(o2_c1zn1@co2)|Zn4O_benz/gaussian->(o2_c1zn1@co2)|Zn4O_benz
+pair_coeff     4     4           10304       3.0612245       457.17971       4.5218516      0.60800239    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|Zn4O_benz <--> buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|Zn4O_benz
+pair_coeff     4     5           10304       3.0612245       457.17971       4.5218516      0.60800605    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|Zn4O_benz <--> buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene
+pair_coeff     4     6           10304       3.0612245       457.17971       4.5218516      0.60800605    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|Zn4O_benz <--> buck6d->(c3_c2o1@ph)|ph-O-butyl/gaussian->(c3_c2o1@ph)|ph-O-butyl
+pair_coeff     4     7           10304       3.0769231       443.36171       4.2093581      0.60800239    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|Zn4O_benz <--> buck6d->(c3_c1o2@co2)|Zn4O_benz/gaussian->(c3_c1o2@co2)|Zn4O_benz
+pair_coeff     4     8       7154.7377               3       358.35904               6      0.60800605    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|Zn4O_benz <--> buck6d->(c4_c2h2@me)|butane/gaussian->(c4_c2h2@me)|butane
+pair_coeff     4     9       7154.7377               3       358.35904               6      0.60800605    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|Zn4O_benz <--> buck6d->(c4_c1h2o1@me)|ph-O-butyl/gaussian->(c4_c1h2o1@me)|ph-O-butyl
+pair_coeff     4    10       7154.7377               3       358.35904               6      0.60800605    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|Zn4O_benz <--> buck6d->(c4_c1h3@me)|butane/gaussian->(c4_c1h3@me)|butane
+pair_coeff     4    11       10576.399       3.1746032       377.27092       2.7176691      0.61998309    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|Zn4O_benz <--> buck6d->(o4_zn4@zn4o)|Zn4O_benz/gaussian->(o4_zn4@zn4o)|Zn4O_benz
+pair_coeff     4    12       10576.399       3.1746032       377.27092       2.7176691       0.6199956    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|Zn4O_benz <--> buck6d->(o2_c2@eth)|ph-O-butyl/gaussian->(o2_c2@eth)|ph-O-butyl
+pair_coeff     4    13       10576.399       3.1746032       377.27092       2.7176691      0.61998309    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c3@ph)|Zn4O_benz <--> buck6d->(o2_c1zn1@co2)|Zn4O_benz/gaussian->(o2_c1zn1@co2)|Zn4O_benz
+pair_coeff     5     5           10304       3.0612245       457.17971       4.5218516      0.60800971    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene <--> buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene
+pair_coeff     5     6           10304       3.0612245       457.17971       4.5218516      0.60800971    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene <--> buck6d->(c3_c2o1@ph)|ph-O-butyl/gaussian->(c3_c2o1@ph)|ph-O-butyl
+pair_coeff     5     7           10304       3.0769231       443.36171       4.2093581      0.60800605    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene <--> buck6d->(c3_c1o2@co2)|Zn4O_benz/gaussian->(c3_c1o2@co2)|Zn4O_benz
+pair_coeff     5     8       7154.7377               3       358.35904               6      0.60800971    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene <--> buck6d->(c4_c2h2@me)|butane/gaussian->(c4_c2h2@me)|butane
+pair_coeff     5     9       7154.7377               3       358.35904               6      0.60800971    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene <--> buck6d->(c4_c1h2o1@me)|ph-O-butyl/gaussian->(c4_c1h2o1@me)|ph-O-butyl
+pair_coeff     5    10       7154.7377               3       358.35904               6      0.60800971    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene <--> buck6d->(c4_c1h3@me)|butane/gaussian->(c4_c1h3@me)|butane
+pair_coeff     5    11       10576.399       3.1746032       377.27092       2.7176691      0.61998697    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene <--> buck6d->(o4_zn4@zn4o)|Zn4O_benz/gaussian->(o4_zn4@zn4o)|Zn4O_benz
+pair_coeff     5    12       10576.399       3.1746032       377.27092       2.7176691      0.61999948    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene <--> buck6d->(o2_c2@eth)|ph-O-butyl/gaussian->(o2_c2@eth)|ph-O-butyl
+pair_coeff     5    13       10576.399       3.1746032       377.27092       2.7176691      0.61998697    # buck6d->(c3_c2h1@ph)|benzene/gaussian->(c3_c2h1@ph)|benzene <--> buck6d->(o2_c1zn1@co2)|Zn4O_benz/gaussian->(o2_c1zn1@co2)|Zn4O_benz
+pair_coeff     6     6           10304       3.0612245       457.17971       4.5218516      0.60800971    # buck6d->(c3_c2o1@ph)|ph-O-butyl/gaussian->(c3_c2o1@ph)|ph-O-butyl <--> buck6d->(c3_c2o1@ph)|ph-O-butyl/gaussian->(c3_c2o1@ph)|ph-O-butyl
+pair_coeff     6     7           10304       3.0769231       443.36171       4.2093581      0.60800605    # buck6d->(c3_c2o1@ph)|ph-O-butyl/gaussian->(c3_c2o1@ph)|ph-O-butyl <--> buck6d->(c3_c1o2@co2)|Zn4O_benz/gaussian->(c3_c1o2@co2)|Zn4O_benz
+pair_coeff     6     8       7154.7377               3       358.35904               6      0.60800971    # buck6d->(c3_c2o1@ph)|ph-O-butyl/gaussian->(c3_c2o1@ph)|ph-O-butyl <--> buck6d->(c4_c2h2@me)|butane/gaussian->(c4_c2h2@me)|butane
+pair_coeff     6     9       7154.7377               3       358.35904               6      0.60800971    # buck6d->(c3_c2o1@ph)|ph-O-butyl/gaussian->(c3_c2o1@ph)|ph-O-butyl <--> buck6d->(c4_c1h2o1@me)|ph-O-butyl/gaussian->(c4_c1h2o1@me)|ph-O-butyl
+pair_coeff     6    10       7154.7377               3       358.35904               6      0.60800971    # buck6d->(c3_c2o1@ph)|ph-O-butyl/gaussian->(c3_c2o1@ph)|ph-O-butyl <--> buck6d->(c4_c1h3@me)|butane/gaussian->(c4_c1h3@me)|butane
+pair_coeff     6    11       10576.399       3.1746032       377.27092       2.7176691      0.61998697    # buck6d->(c3_c2o1@ph)|ph-O-butyl/gaussian->(c3_c2o1@ph)|ph-O-butyl <--> buck6d->(o4_zn4@zn4o)|Zn4O_benz/gaussian->(o4_zn4@zn4o)|Zn4O_benz
+pair_coeff     6    12       10576.399       3.1746032       377.27092       2.7176691      0.61999948    # buck6d->(c3_c2o1@ph)|ph-O-butyl/gaussian->(c3_c2o1@ph)|ph-O-butyl <--> buck6d->(o2_c2@eth)|ph-O-butyl/gaussian->(o2_c2@eth)|ph-O-butyl
+pair_coeff     6    13       10576.399       3.1746032       377.27092       2.7176691      0.61998697    # buck6d->(c3_c2o1@ph)|ph-O-butyl/gaussian->(c3_c2o1@ph)|ph-O-butyl <--> buck6d->(o2_c1zn1@co2)|Zn4O_benz/gaussian->(o2_c1zn1@co2)|Zn4O_benz
+pair_coeff     7     7           10304       3.0927835       429.89352       3.9170177      0.60800239    # buck6d->(c3_c1o2@co2)|Zn4O_benz/gaussian->(c3_c1o2@co2)|Zn4O_benz <--> buck6d->(c3_c1o2@co2)|Zn4O_benz/gaussian->(c3_c1o2@co2)|Zn4O_benz
+pair_coeff     7     8       7154.7377       3.0150754       347.74176       5.5933807      0.60800605    # buck6d->(c3_c1o2@co2)|Zn4O_benz/gaussian->(c3_c1o2@co2)|Zn4O_benz <--> buck6d->(c4_c2h2@me)|butane/gaussian->(c4_c2h2@me)|butane
+pair_coeff     7     9       7154.7377       3.0150754       347.74176       5.5933807      0.60800605    # buck6d->(c3_c1o2@co2)|Zn4O_benz/gaussian->(c3_c1o2@co2)|Zn4O_benz <--> buck6d->(c4_c1h2o1@me)|ph-O-butyl/gaussian->(c4_c1h2o1@me)|ph-O-butyl
+pair_coeff     7    10       7154.7377       3.0150754       347.74176       5.5933807      0.60800605    # buck6d->(c3_c1o2@co2)|Zn4O_benz/gaussian->(c3_c1o2@co2)|Zn4O_benz <--> buck6d->(c4_c1h3@me)|butane/gaussian->(c4_c1h3@me)|butane
+pair_coeff     7    11       10576.399       3.1914894       365.45138       2.5231391      0.61998309    # buck6d->(c3_c1o2@co2)|Zn4O_benz/gaussian->(c3_c1o2@co2)|Zn4O_benz <--> buck6d->(o4_zn4@zn4o)|Zn4O_benz/gaussian->(o4_zn4@zn4o)|Zn4O_benz
+pair_coeff     7    12       10576.399       3.1914894       365.45138       2.5231391       0.6199956    # buck6d->(c3_c1o2@co2)|Zn4O_benz/gaussian->(c3_c1o2@co2)|Zn4O_benz <--> buck6d->(o2_c2@eth)|ph-O-butyl/gaussian->(o2_c2@eth)|ph-O-butyl
+pair_coeff     7    13       10576.399       3.1914894       365.45138       2.5231391      0.61998309    # buck6d->(c3_c1o2@co2)|Zn4O_benz/gaussian->(c3_c1o2@co2)|Zn4O_benz <--> buck6d->(o2_c1zn1@co2)|Zn4O_benz/gaussian->(o2_c1zn1@co2)|Zn4O_benz
+pair_coeff     8     8            4968       2.9411765       280.22525       7.9168726      0.60800971    # buck6d->(c4_c2h2@me)|butane/gaussian->(c4_c2h2@me)|butane <--> buck6d->(c4_c2h2@me)|butane/gaussian->(c4_c2h2@me)|butane
+pair_coeff     8     9            4968       2.9411765       280.22525       7.9168726      0.60800971    # buck6d->(c4_c2h2@me)|butane/gaussian->(c4_c2h2@me)|butane <--> buck6d->(c4_c1h2o1@me)|ph-O-butyl/gaussian->(c4_c1h2o1@me)|ph-O-butyl
+pair_coeff     8    10            4968       2.9411765       280.22525       7.9168726      0.60800971    # buck6d->(c4_c2h2@me)|butane/gaussian->(c4_c2h2@me)|butane <--> buck6d->(c4_c1h3@me)|butane/gaussian->(c4_c1h3@me)|butane
+pair_coeff     8    11       7343.8824       3.1088083       297.03952       3.6436247      0.61998697    # buck6d->(c4_c2h2@me)|butane/gaussian->(c4_c2h2@me)|butane <--> buck6d->(o4_zn4@zn4o)|Zn4O_benz/gaussian->(o4_zn4@zn4o)|Zn4O_benz
+pair_coeff     8    12       7343.8824       3.1088083       297.03952       3.6436247      0.61999948    # buck6d->(c4_c2h2@me)|butane/gaussian->(c4_c2h2@me)|butane <--> buck6d->(o2_c2@eth)|ph-O-butyl/gaussian->(o2_c2@eth)|ph-O-butyl
+pair_coeff     8    13       7343.8824       3.1088083       297.03952       3.6436247      0.61998697    # buck6d->(c4_c2h2@me)|butane/gaussian->(c4_c2h2@me)|butane <--> buck6d->(o2_c1zn1@co2)|Zn4O_benz/gaussian->(o2_c1zn1@co2)|Zn4O_benz
+pair_coeff     9     9            4968       2.9411765       280.22525       7.9168726      0.60800971    # buck6d->(c4_c1h2o1@me)|ph-O-butyl/gaussian->(c4_c1h2o1@me)|ph-O-butyl <--> buck6d->(c4_c1h2o1@me)|ph-O-butyl/gaussian->(c4_c1h2o1@me)|ph-O-butyl
+pair_coeff     9    10            4968       2.9411765       280.22525       7.9168726      0.60800971    # buck6d->(c4_c1h2o1@me)|ph-O-butyl/gaussian->(c4_c1h2o1@me)|ph-O-butyl <--> buck6d->(c4_c1h3@me)|butane/gaussian->(c4_c1h3@me)|butane
+pair_coeff     9    11       7343.8824       3.1088083       297.03952       3.6436247      0.61998697    # buck6d->(c4_c1h2o1@me)|ph-O-butyl/gaussian->(c4_c1h2o1@me)|ph-O-butyl <--> buck6d->(o4_zn4@zn4o)|Zn4O_benz/gaussian->(o4_zn4@zn4o)|Zn4O_benz
+pair_coeff     9    12       7343.8824       3.1088083       297.03952       3.6436247      0.61999948    # buck6d->(c4_c1h2o1@me)|ph-O-butyl/gaussian->(c4_c1h2o1@me)|ph-O-butyl <--> buck6d->(o2_c2@eth)|ph-O-butyl/gaussian->(o2_c2@eth)|ph-O-butyl
+pair_coeff     9    13       7343.8824       3.1088083       297.03952       3.6436247      0.61998697    # buck6d->(c4_c1h2o1@me)|ph-O-butyl/gaussian->(c4_c1h2o1@me)|ph-O-butyl <--> buck6d->(o2_c1zn1@co2)|Zn4O_benz/gaussian->(o2_c1zn1@co2)|Zn4O_benz
+pair_coeff    10    10            4968       2.9411765       280.22525       7.9168726      0.60800971    # buck6d->(c4_c1h3@me)|butane/gaussian->(c4_c1h3@me)|butane <--> buck6d->(c4_c1h3@me)|butane/gaussian->(c4_c1h3@me)|butane
+pair_coeff    10    11       7343.8824       3.1088083       297.03952       3.6436247      0.61998697    # buck6d->(c4_c1h3@me)|butane/gaussian->(c4_c1h3@me)|butane <--> buck6d->(o4_zn4@zn4o)|Zn4O_benz/gaussian->(o4_zn4@zn4o)|Zn4O_benz
+pair_coeff    10    12       7343.8824       3.1088083       297.03952       3.6436247      0.61999948    # buck6d->(c4_c1h3@me)|butane/gaussian->(c4_c1h3@me)|butane <--> buck6d->(o2_c2@eth)|ph-O-butyl/gaussian->(o2_c2@eth)|ph-O-butyl
+pair_coeff    10    13       7343.8824       3.1088083       297.03952       3.6436247      0.61998697    # buck6d->(c4_c1h3@me)|butane/gaussian->(c4_c1h3@me)|butane <--> buck6d->(o2_c1zn1@co2)|Zn4O_benz/gaussian->(o2_c1zn1@co2)|Zn4O_benz
+pair_coeff    11    11           10856       3.2967033        308.7755       1.6022517      0.63270113    # buck6d->(o4_zn4@zn4o)|Zn4O_benz/gaussian->(o4_zn4@zn4o)|Zn4O_benz <--> buck6d->(o4_zn4@zn4o)|Zn4O_benz/gaussian->(o4_zn4@zn4o)|Zn4O_benz
+pair_coeff    11    12           10856       3.2967033        308.7755       1.6022517      0.63271443    # buck6d->(o4_zn4@zn4o)|Zn4O_benz/gaussian->(o4_zn4@zn4o)|Zn4O_benz <--> buck6d->(o2_c2@eth)|ph-O-butyl/gaussian->(o2_c2@eth)|ph-O-butyl
+pair_coeff    11    13           10856       3.2967033        308.7755       1.6022517      0.63270113    # buck6d->(o4_zn4@zn4o)|Zn4O_benz/gaussian->(o4_zn4@zn4o)|Zn4O_benz <--> buck6d->(o2_c1zn1@co2)|Zn4O_benz/gaussian->(o2_c1zn1@co2)|Zn4O_benz
+pair_coeff    12    12           10856       3.2967033        308.7755       1.6022517      0.63272774    # buck6d->(o2_c2@eth)|ph-O-butyl/gaussian->(o2_c2@eth)|ph-O-butyl <--> buck6d->(o2_c2@eth)|ph-O-butyl/gaussian->(o2_c2@eth)|ph-O-butyl
+pair_coeff    12    13           10856       3.2967033        308.7755       1.6022517      0.63271443    # buck6d->(o2_c2@eth)|ph-O-butyl/gaussian->(o2_c2@eth)|ph-O-butyl <--> buck6d->(o2_c1zn1@co2)|Zn4O_benz/gaussian->(o2_c1zn1@co2)|Zn4O_benz
+pair_coeff    13    13           10856       3.2967033        308.7755       1.6022517      0.63270113    # buck6d->(o2_c1zn1@co2)|Zn4O_benz/gaussian->(o2_c1zn1@co2)|Zn4O_benz <--> buck6d->(o2_c1zn1@co2)|Zn4O_benz/gaussian->(o2_c1zn1@co2)|Zn4O_benz
+
+bond_style hybrid class2 morse harmonic
+
+bond_coeff    13 class2     1.529408   314.283599  -801.423177  1192.116976    # mm3->(c4_c2h2@me,c4_c2h2@me)|butane
+bond_coeff     8 class2     1.394074   455.360160 -1161.168407  1727.238006    # mm3->(c3_c2h1@ph,c3_c2o1@ph)|ph-O-butyl
+bond_coeff     4 class2     1.101213   365.915223  -933.083819  1387.962181    # mm3->(c4_c2h2@me,h1_c1@me)|butane
+bond_coeff     9 class2     1.488000   355.167780  -905.677839  1347.195786    # mm3->(c3_c1o2@co2,c3_c3@ph)|Zn4O_benz
+bond_coeff     3 class2     1.094000   390.634200  -996.117210  1481.724350    # mm3->(c3_c2h1@ph,h1_c1@ph)|benzene
+bond_coeff     6 class2     1.099390   374.841138  -955.844901  1421.819290    # mm3->(c4_c1h3@me,h1_c1@me)|butane
+bond_coeff    10 class2     1.357631   390.806068  -996.555472  1482.376265    # mm3->(c3_c2o1@ph,o2_c2@eth)|ph-O-butyl
+bond_coeff     1 morse    50.000000    1.463685     1.987000    # morse->(o4_zn4@zn4o,zn4_o4@zn4o)|Zn4O_benz
+bond_coeff    12 class2     1.515294   290.719566  -741.334894  1102.735655    # mm3->(c4_c1h2o1@me,c4_c2h2@me)|ph-O-butyl
+bond_coeff     5 class2     1.101119   356.182160  -908.264508  1351.043455    # mm3->(c4_c1h2o1@me,h1_c1@me)|ph-O-butyl
+bond_coeff     7 class2     1.394000   509.335200 -1298.804760  1931.972080    # mm3->(c3_c2h1@ph,c3_c2h1@ph)|benzene
+bond_coeff    15 class2     1.427071   299.914044  -764.780811  1137.611457    # mm3->(c4_c1h2o1@me,o2_c2@eth)|ph-O-butyl
+bond_coeff    14 class2     1.529182   318.631885  -812.511306  1208.610568    # mm3->(c4_c1h3@me,c4_c2h2@me)|butane
+bond_coeff     2 morse    50.000000    1.547773     1.917000    # morse->(o2_c1zn1@co2,zn4_o4@zn4o)|Zn4O_benz
+bond_coeff    11 class2     1.275000   620.986080 -1583.514504  2355.477825    # mm3->(c3_c1o2@co2,o2_c1zn1@co2)|Zn4O_benz
+
+angle_style hybrid class2/p6 cosine/buck6d
+
+angle_coeff    26 class2/p6      113.257375    69.461048   -55.717548    12.769521    -9.145496    16.468519    # mm3->(c3_c2o1@ph,o2_c2@eth,c4_c1h2o1@me)|ph-O-butyl
+angle_coeff    26 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    26 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff    27 class2/p6      135.606000     6.762360    -5.424366     1.243173    -0.890357     1.603288    # mm3->(c3_c1o2@co2,o2_c1zn1@co2,zn4_o4@zn4o)|Zn4O_benz
+angle_coeff    27 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    27 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff    20 class2/p6      116.818943    25.946625   -20.812849     4.769954    -3.416228     6.151685    # mm3->(h1_c1@me,c4_c1h2o1@me,o2_c2@eth)|ph-O-butyl
+angle_coeff    20 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    20 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff     4 class2/p6      117.296000    57.983640   -46.511050    10.659547    -7.634339    13.747340    # mm3->(c3_c1o2@co2,c3_c3@ph,c3_c2h1@ph)|Zn4O_benz
+angle_coeff     4 class2/p6 bb 0.0 1.0 1.0
+angle_coeff     4 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff     6 class2/p6      120.350000    36.185820   -29.026127     6.652298    -4.764358     8.579296    # mm3->(c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+angle_coeff     6 class2/p6 bb    93.378120     1.394000     1.094000
+angle_coeff     6 class2/p6 ba   -25.179000    53.523360     1.394000     1.094000
+angle_coeff     1 class2/p6      113.584000     0.000000    -0.000000     0.000000    -0.000000     0.000000    # mm3->(o2_c1zn1@co2,zn4_o4@zn4o,o4_zn4@zn4o)|Zn4O_benz
+angle_coeff     1 class2/p6 bb     0.000000     1.917000     1.987000
+angle_coeff     1 class2/p6 ba     0.000000     0.000000     1.917000     1.987000
+angle_coeff    19 class2/p6      118.378973    29.889438   -23.975541     5.494789    -3.935353     7.086487    # mm3->(c4_c2h2@me,c4_c1h2o1@me,h1_c1@me)|ph-O-butyl
+angle_coeff    19 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    19 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff    17 class2/p6      113.161464    65.779678   -52.764571    12.092749    -8.660793    15.595703    # mm3->(c4_c1h3@me,c4_c2h2@me,c4_c2h2@me)|butane
+angle_coeff    17 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    17 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff    11 class2/p6      123.006000   111.866700   -89.732857    20.565256   -14.728780    26.522474    # mm3->(o2_c1zn1@co2,c3_c1o2@co2,o2_c1zn1@co2)|Zn4O_benz
+angle_coeff    11 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    11 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff    16 class2/p6      110.602540    44.106999   -35.380028     8.108505    -5.807289    10.457328    # mm3->(c4_c1h3@me,c4_c2h2@me,h1_c1@me)|butane
+angle_coeff    16 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    16 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff    13 class2/p6      110.342401    30.766657   -24.679194     5.656055    -4.050851     7.294466    # mm3->(c4_c1h2o1@me,c4_c2h2@me,h1_c1@me)|ph-O-butyl
+angle_coeff    13 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    13 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff     7 class2/p6      117.983314    23.459678   -18.817967     4.312760    -3.088787     5.562055    # mm3->(c3_c2o1@ph,c3_c2h1@ph,h1_c1@ph)|ph-O-butyl
+angle_coeff     7 class2/p6 bb 0.0 1.0 1.0
+angle_coeff     7 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff    24 class2/p6      113.161464    65.779678   -52.764571    12.092749    -8.660793    15.595703    # mm3->(c4_c2h2@me,c4_c2h2@me,c4_c2h2@me)|butane
+angle_coeff    24 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    24 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff    18 class2/p6      114.761173    31.409569   -25.194901     5.774246    -4.135499     7.446894    # mm3->(h1_c1@me,c4_c1h2o1@me,h1_c1@me)|ph-O-butyl
+angle_coeff    18 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    18 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff    25 class2/p6      103.992000    50.214120   -40.278800     9.231221    -6.611375    11.905265    # mm3->(zn4_o4@zn4o,o4_zn4@zn4o,zn4_o4@zn4o)|Zn4O_benz
+angle_coeff    25 class2/p6 bb     7.625640     1.987000     1.987000
+angle_coeff    25 class2/p6 ba    18.416640    18.416640     1.987000     1.987000
+angle_coeff    10 class2/p6      116.368000    77.191620   -61.918557    14.190688   -10.163332    18.301360    # mm3->(c3_c3@ph,c3_c1o2@co2,o2_c1zn1@co2)|Zn4O_benz
+angle_coeff    10 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    10 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff    14 class2/p6      110.134130    42.675831   -34.232030     7.845403    -5.618856    10.118012    # mm3->(c4_c2h2@me,c4_c2h2@me,h1_c1@me)|butane
+angle_coeff    14 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    14 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff     2 class2/p6      123.103000     5.755200    -4.616481     1.058020    -0.757751     1.364500    # mm3->(o2_c1zn1@co2,zn4_o4@zn4o,o2_c1zn1@co2)|Zn4O_benz
+angle_coeff     2 class2/p6 bb 0.0 1.0 1.0
+angle_coeff     2 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff     9 class2/p6      144.582528    30.574828   -24.525320     5.620789    -4.025594     7.248986    # mm3->(c3_c2h1@ph,c3_c2o1@ph,c3_c2h1@ph)|ph-O-butyl
+angle_coeff     9 class2/p6 bb 0.0 1.0 1.0
+angle_coeff     9 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff    22 class2/p6      107.691286    37.470927   -30.056964     6.888549    -4.933560     8.883982    # mm3->(h1_c1@me,c4_c1h3@me,h1_c1@me)|butane
+angle_coeff    22 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    22 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff    12 class2/p6      107.271015    38.858990   -31.170386     7.143726    -5.116317     9.213077    # mm3->(h1_c1@me,c4_c2h2@me,h1_c1@me)|butane
+angle_coeff    12 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    12 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff     5 class2/p6      117.296000    57.983640   -46.511050    10.659547    -7.634339    13.747340    # mm3->(c3_c1o2@co2,c3_c3@ph,c3_c2o1@ph)|Zn4O_benz
+angle_coeff     5 class2/p6 bb 0.0 1.0 1.0
+angle_coeff     5 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff    23 class2/p6      110.959949    44.958991   -36.063446     8.265133    -5.919465    10.659326    # mm3->(c4_c2h2@me,c4_c1h3@me,h1_c1@me)|butane
+angle_coeff    23 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    23 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff     8 class2/p6      159.969859     8.440703    -6.770633     1.551715    -1.111334     2.001206    # mm3->(c3_c2h1@ph,c3_c2o1@ph,o2_c2@eth)|ph-O-butyl
+angle_coeff     8 class2/p6 bb 0.0 1.0 1.0
+angle_coeff     8 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff     3 class2/p6      126.007089    47.182599   -37.847093     8.673915    -6.212234    11.186522    # mm3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2o1@ph)|ph-O-butyl
+angle_coeff     3 class2/p6 bb 0.0 1.0 1.0
+angle_coeff     3 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff    15 class2/p6      113.161464    65.779678   -52.764571    12.092749    -8.660793    15.595703    # mm3->(c4_c1h2o1@me,c4_c2h2@me,c4_c2h2@me)|butane
+angle_coeff    15 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    15 class2/p6 ba 0.0 0.0 1.0 1.0
+angle_coeff    21 class2/p6      114.447479    32.354254   -25.952671     5.947914    -4.259880     7.670870    # mm3->(c4_c2h2@me,c4_c1h2o1@me,o2_c2@eth)|ph-O-butyl
+angle_coeff    21 class2/p6 bb 0.0 1.0 1.0
+angle_coeff    21 class2/p6 ba 0.0 0.0 1.0 1.0
+
+dihedral_style opls
+
+dihedral_coeff     5     0.000000     5.972000     0.000000     0.000000    # cos3->(c3_c2o1@ph,c3_c2h1@ph,c3_c2h1@ph,c3_c2o1@ph)|ph-O-butyl
+dihedral_coeff    18     0.000000     3.012000     0.000000     0.000000    # cos3->(c3_c3@ph,c3_c1o2@co2,o2_c1zn1@co2,zn4_o4@zn4o)|Zn4O_benz
+dihedral_coeff    19     0.000000     0.076000     0.000000     0.000000    # cos3->(o2_c1zn1@co2,c3_c1o2@co2,o2_c1zn1@co2,zn4_o4@zn4o)|Zn4O_benz
+dihedral_coeff     9     0.000000     5.972000     0.000000     0.000000    # cos3->(c3_c2h1@ph,c3_c2o1@ph,c3_c2h1@ph,c3_c2h1@ph)|ph-O-butyl
+dihedral_coeff     7     0.000000     0.000000     0.000000     0.000000    # cos3->(c3_c2o1@ph,c3_c2h1@ph,c3_c3@ph,c3_c1o2@co2)|Zn4O_benz
+dihedral_coeff    32     0.000000     0.000000     0.010079     0.000000    # cos3->(h1_c1@me,c4_c1h2o1@me,o2_c2@eth,c3_c2o1@ph)|ph-O-butyl
+dihedral_coeff    25     0.000000     0.000000    -0.052641     0.000000    # cos3->(c4_c2h2@me,c4_c2h2@me,c4_c2h2@me,h1_c1@me)|butane
+dihedral_coeff    14     0.000000     5.117273     0.000000     0.000000    # cos3->(h1_c1@ph,c3_c2h1@ph,c3_c2o1@ph,c3_c2h1@ph)|ph-O-butyl
+dihedral_coeff    21     0.000000     0.000000     0.514450     0.000000    # cos3->(o2_c2@eth,c4_c1h2o1@me,c4_c2h2@me,h1_c1@me)|ph-O-butyl
+dihedral_coeff    10     0.000000     5.000000     0.000000     0.000000    # cos3->(c3_c1o2@co2,c3_c2h1@ph,c3_c2o1@ph,o2_c2@eth)|co2-ph-o-me
+dihedral_coeff     8     0.000000     6.281542     0.000000     0.000000    # cos3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2o1@ph,o2_c2@eth)|ph-O-prop
+dihedral_coeff    34    -0.370853    -0.236138     1.970124     0.000000    # cos3->(c4_c2h2@me,c4_c2h2@me,c4_c2h2@me,c4_c2h2@me)|butane
+dihedral_coeff    11     0.000000     0.000000     0.000000     0.000000    # cos3->(c3_c2h1@ph,c3_c2o1@ph,c3_c3@ph,c3_c1o2@co2)|Zn4O_benz
+dihedral_coeff    33     0.803729    -0.768357     1.298183     0.000000    # cos3->(c4_c2h2@me,c4_c1h2o1@me,o2_c2@eth,c3_c2o1@ph)|ph-O-butyl
+dihedral_coeff    29     0.000000     0.000000     0.870477     0.000000    # cos3->(h1_c1@me,c4_c1h3@me,c4_c2h2@me,c4_c2h2@me)|butane
+dihedral_coeff    28     0.000000     0.000000     0.343076     0.000000    # cos3->(h1_c1@me,c4_c1h3@me,c4_c2h2@me,h1_c1@me)|butane
+dihedral_coeff    16     0.000000     3.664689     0.000000     0.000000    # cos3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2o1@ph,c3_c2h1@ph)|ph-O-butyl
+dihedral_coeff    13     0.000000     1.902000     0.000000     0.000000    # cos3->(o2_c1zn1@co2,c3_c1o2@co2,c3_c3@ph,c3_c2o1@ph)|Zn4O_benz
+dihedral_coeff    24     0.000000     0.000000     0.302052     0.000000    # cos3->(h1_c1@me,c4_c2h2@me,c4_c2h2@me,h1_c1@me)|butane
+dihedral_coeff    23    -1.702642    -0.327922     0.811155     0.000000    # cos3->(o2_c2@eth,c4_c1h2o1@me,c4_c2h2@me,c4_c2h2@me)|ph-O-butyl
+dihedral_coeff    30     0.000000     0.000000    -0.052641     0.000000    # cos3->(c4_c1h3@me,c4_c2h2@me,c4_c2h2@me,h1_c1@me)|butane
+dihedral_coeff     4     0.000000     6.045595     0.000000     0.000000    # cos3->(c3_c2o1@ph,c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|ph-O-butyl
+dihedral_coeff    27    -0.370853    -0.236138     1.970124     0.000000    # cos3->(c4_c1h2o1@me,c4_c2h2@me,c4_c2h2@me,c4_c2h2@me)|butane
+dihedral_coeff     6     0.000000     0.000000     0.000000     0.000000    # cos3->(h1_c1@ph,c3_c2h1@ph,c3_c3@ph,c3_c1o2@co2)|Zn4O_benz
+dihedral_coeff    15     0.000000     3.982172     0.000000     0.000000    # cos3->(h1_c1@ph,c3_c2h1@ph,c3_c2o1@ph,o2_c2@eth)|ph-O-butyl
+dihedral_coeff     1     0.000000     0.000000     0.000000     0.000000    # cos3->(zn4_o4@zn4o,o4_zn4@zn4o,zn4_o4@zn4o,o2_c1zn1@co2)|Zn4O_benz
+dihedral_coeff     3     0.000000     0.000000     0.000000     0.000000    # cos3->(c3_c1o2@co2,o2_c1zn1@co2,zn4_o4@zn4o,o2_c1zn1@co2)|Zn4O_benz
+dihedral_coeff    26     0.000000     0.000000    -0.052641     0.000000    # cos3->(c4_c1h2o1@me,c4_c2h2@me,c4_c2h2@me,h1_c1@me)|butane
+dihedral_coeff     2     0.000000     0.000000     0.000000     0.000000    # cos3->(c3_c1o2@co2,o2_c1zn1@co2,zn4_o4@zn4o,o4_zn4@zn4o)|Zn4O_benz
+dihedral_coeff    17     4.763804     2.750105     0.191432     0.000000    # cos3->(c3_c2h1@ph,c3_c2o1@ph,o2_c2@eth,c4_c1h2o1@me)|ph-O-butyl
+dihedral_coeff    20     0.000000     0.000000     0.037991     0.000000    # cos3->(h1_c1@me,c4_c1h2o1@me,c4_c2h2@me,h1_c1@me)|ph-O-butyl
+dihedral_coeff    31    -0.370853    -0.236138     1.970124     0.000000    # cos3->(c4_c1h3@me,c4_c2h2@me,c4_c2h2@me,c4_c2h2@me)|butane
+dihedral_coeff    12     0.000000     1.902000     0.000000     0.000000    # cos3->(o2_c1zn1@co2,c3_c1o2@co2,c3_c3@ph,c3_c2h1@ph)|Zn4O_benz
+dihedral_coeff    22     0.000000     0.000000     0.343642     0.000000    # cos3->(h1_c1@me,c4_c1h2o1@me,c4_c2h2@me,c4_c2h2@me)|ph-O-butyl
+
+improper_style inversion/harmonic
+
+improper_coeff     2     3.563253     0.000000    # harm->(c3_c2h1@ph,c3_c2h1@ph,c3_c2o1@ph,h1_c1@ph)|ph-O-butyl
+improper_coeff     4    40.574160     0.000000    # harm->(c3_c1o2@co2,c3_c3@ph,o2_c1zn1@co2,o2_c1zn1@co2)|Zn4O_benz
+improper_coeff     3     0.000000     0.000000    # harm->(c3_c2o1@ph,c3_c2h1@ph,c3_c2h1@ph,o2_c2@eth)|ph-O-butyl
+improper_coeff     1     0.000000     0.000000    # harm->(c3_c2h1@ph,c3_c1o2@co2,c3_c2h1@ph,c3_c2o1@ph)|xxx
+
+special_bonds lj 0.00 0.00 1.00 coul 1.00 1.00 1.00
+
+# ------------------------ MOF-FF FORCE FIELD END --------------------------
