@@ -1,0 +1,9 @@
+timestep     1.000000
+thermo_style custom step evdwl ecoul elong ebond eangle edihed eimp pe                ke etotal temp press vol cella cellb cellc cellalpha cellbeta cellgamma                pxx pyy pzz pxy pxz pyz spcpu
+dump equil_NVT_dump all custom 1000 equil_NVT.dump id type element xu yu zu
+dump_modify equil_NVT_dump element Zn H H C C C C C C C O O O
+velocity all create   300.000000 42 rot yes dist gaussian
+fix equil_NVT all nvt temp   300.000000   300.000000 100
+thermo 100
+run 100000
+

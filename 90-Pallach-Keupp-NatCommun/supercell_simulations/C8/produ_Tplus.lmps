@@ -1,0 +1,10 @@
+timestep     1.000000
+thermo_style custom step evdwl ecoul elong ebond eangle edihed eimp pe                ke etotal temp press vol cella cellb cellc cellalpha cellbeta cellgamma                pxx pyy pzz pxy pxz pyz spcpu
+dump produ_Tplus_dump all custom 500 produ_Tplus.dump id type element xu yu zu
+dump_modify produ_Tplus_dump element Zn H H C C C C C C C O O O
+fix produ_Tplus_mttknhc all mttknhc temp 300.0000 1000.0000 100.0000 tri     0.000000     0.000000  1000.000000 volconstraint no
+fix_modify produ_Tplus_mttknhc energy yes
+thermo_style custom step evdwl ecoul elong ebond eangle edihed eimp pe ke etotal temp press vol cella cellb cellc cellalpha cellbeta cellgamma pxx pyy pzz pxy pxz pyz enthalpy spcpu
+thermo 100
+run 1400000
+
