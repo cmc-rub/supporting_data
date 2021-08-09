@@ -1,0 +1,18 @@
+clear
+units real
+boundary p p p
+atom_style full
+read_data hg_box.data
+
+neighbor 2.0 bin
+
+
+# ------------------------ MOF-FF FORCE FIELD ------------------------------
+
+pair_style buck6d/coul/gauss/dsf     0.9000    12.0000
+
+pair_coeff     1     1          147200               2         83980.8       1751.5756      0.70710678    # buck6d->(hg0_@-1)|fit/gaussian->(hg0_@-1)|fit <--> buck6d->(hg0_@-1)|fit/gaussian->(hg0_@-1)|fit
+
+special_bonds lj 0.00 0.00 1.00 coul 1.00 1.00 1.00
+
+# ------------------------ MOF-FF FORCE FIELD END --------------------------

@@ -1,0 +1,204 @@
+HASH: f181ebed-cc5b-4a1e-9803-1c9299260ade
+FF JULIAN-FF
+
+cutoff          12.0
+vdw14           1.0
+vdw13           0.0
+coreshell       False
+vdwtype         exp6_damped
+cut_lj          12.0
+coul14          1.0
+chargetype      gaussian
+epsrule         geometric
+cut_lj_inner    10.0
+coul13          1.0
+vdw12           0.0
+coul12          1.0
+radfact         1.0
+radrule         arithmetic
+
+# Supported bnd potentials mm3, quartic, morse
+# mm3:     E(r) = 1/2 k(r-r0)^2*[1-2.55(r-r0)+7/12(2.55(r-r0))^2]
+#          r0 in A, k in mdyn/A
+#          mm3 k r0
+# morse:   E(r) = (1/2a^2)*k*[1-e^(-a(r-r0))] with Ed = k/2a^2
+#          r0 in A, k in mdyn/A, Ed in kcal/mol
+#          morse k r Ed
+# quartic: E(r) = 1/2 k(r-r0)^2*[1-k2(r-r0)+k3(k2(r-r0))^2]
+#          r0 in A, k in mdyn/A, k2 in A^-1 and k3 is unitlesl
+#          quartic k r0 k2 k3
+bnd_type 16
+1                      mm3      4.55700000      1.46300000           # mm3->(c4_c1h2n1@dab,n4_c3cu1@dab)|dabco
+2                      mm3      4.98700000      1.48900000           # mm3->(c3_c1o2@co2,c3_c3@ph)|CuPW_dabco
+3                      mm3      9.08200587      1.35774126           # mm3->(c3_c2h1@naph,c3_c2h1@naph)|naphtalene
+4                      mm3      5.07500000      1.10100000           # mm3->(c4_c1h2n1@dab,h1_c1@dab)|dabco
+5                      mm3      5.44385822      1.09432087           # mm3->(c3_c2h1@naph,h1_c1@naph)|naphtalene
+6                      mm3      7.08000000      1.39400000           # mm3->(c3_c2h1@ph,c3_c2h1@ph)|benzene
+7                      mm3      4.98700000      1.48900000           # mm3->(c3_c1o2@co2,c3_c3@naph)|CuPW_dabco
+8                      mm3      0.25100000      2.99200000           # mm3->(cu6_cu1n1o4@cu2p,cu6_cu1n1o4@cu2p)|CuPW_dabco
+9                    morse      0.39500000      2.30600000     25.00000000           # morse->(cu6_cu1n1o4@cu2p,n4_c3cu1@dab)|CuPW_dabco
+10                     mm3      5.43000000      1.09400000           # mm3->(c3_c2h1@ph,h1_c1@ph)|benzene
+11                     mm3      4.55700000      1.46300000           # mm3->(c4_c1h2n1@dab,n4_c3x1@dab)|dabco
+12                   morse      1.23500000      1.95300000     50.00000000           # morse->(cu6_cu1n1o4@cu2p,o2_c1cu1@co2)|CuPW_dabco
+13                     mm3      4.91558043      1.44754574           # mm3->(c3_c2h1@naph,c3_c3@naph)|naphtalene
+14                     mm3      3.83000000      1.55000000           # mm3->(c4_c1h2n1@dab,c4_c1h2n1@dab)|dabco
+15                     mm3      8.76100000      1.27100000           # mm3->(c3_c1o2@co2,o2_c1cu1@co2)|CuPW_dabco
+16                     mm3      1.45354372      1.65214349           # mm3->(c3_c3@naph,c3_c3@naph)|naphtalene
+
+# Supported ang potentials mm3, fourier, quartic, strbnd
+# mm3:     E(a) = 1/2 k(a-a0)^2*[1-0.014(a-a0)+5.6e-5(a-a0)^2-7e-7(a-a0)^3+2.2e-8(a-a0)^4]
+#          a0 in deg, k in mdyn/(A*rad)
+#          mm3 k a0
+# fourier: E(r) = V/a[1+cos(n*a+a0)]
+#          a0 in deg, V in kcal/mol, n is unitless
+#          fourier V a0 n 1.0 1.0
+# quartic: E(a) = 1/2 k(a-a0)^2*[1-k2(a-a0)+k3(k2(a-a0))^2]
+#          a0 in deg, k in mdyn/(A*rad), k2 in 1/rad, and k3 is unitless
+#          quartic k a0 k2 k3
+# strbnd:  E(r1,r2,a) = kss(r1-r10)(r2-r20)+(a-a0)*[ksb1*(r1-r10)+ksb2(r2-r20)]
+#          r10, r20 in A, a in deg, kss in mdyn/A, ksb1 and ksb2 in mdyn/(rad*A)
+#          strbnd ksb1 ksb2 kss r10 r20 a0
+ang_type 29
+1                      mm3      0.36700000    114.97200000           # mm3->(c3_c1o2@co2,o2_c1cu1@co2,cu6_cu1n1o4@cu2p)|CuPW_dabco
+2                  fourier      0.26400000    180.00000000      4.00000000      1.00000000      1.00000000           # fourier->(o2_c1cu1@co2,cu6_cu1n1o4@cu2p,o2_c1cu1@co2)|CuPW_dabco
+3                      mm3      0.79400000    112.63000000           # mm3->(c4_c1h2n1@dab,n4_c3x1@dab,c4_c1h2n1@dab)|dabco
+4                      mm3      0.85400000    115.56600000           # mm3->(c3_c1o2@co2,c3_c3@naph,c3_c2h1@naph)|CuPW_dabco
+5                      mm3      0.47100000    110.57000000           # mm3->(h1_c1@dab,c4_c1h2n1@dab,h1_c1@dab)|dabco
+6                      mm3      0.79400000    112.63000000           # mm3->(c4_c1h2n1@dab,n4_c3cu1@dab,c4_c1h2n1@dab)|dabco
+7                      mm3      0.56500000    113.92000000           # mm3->(c4_c1h2n1@dab,c4_c1h2n1@dab,h1_c1@dab)|dabco
+8                      mm3      0.30800865    133.83717378           # mm3->(c3_c2h1@naph,c3_c2h1@naph,h1_c1@naph)|naphtalene
+9                      mm3      0.92200000    115.18000000           # mm3->(c4_c1h2n1@dab,c4_c1h2n1@dab,n4_c3cu1@dab)|dabco
+10                  strbnd     -0.17500000      0.37200000      0.64900000      1.39400000      1.09400000    120.35000000           # strbnd->(c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+10                     mm3      0.50300000    120.35000000           # mm3->(c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+11                     mm3      0.73800000    110.29000000           # mm3->(h1_c1@dab,c4_c1h2n1@dab,n4_c3x1@dab)|dabco
+12                     mm3      0.92200000    115.18000000           # mm3->(c4_c1h2n1@dab,c4_c1h2n1@dab,n4_c3x1@dab)|dabco
+13                     mm3      0.00000000     80.00000000           # mm3->(cu6_cu1n1o4@cu2p,cu6_cu1n1o4@cu2p,o2_c1cu1@co2)|CuPW_dabco
+14                     mm3      1.50100000    123.02700000           # mm3->(o2_c1cu1@co2,c3_c1o2@co2,o2_c1cu1@co2)|CuPW_dabco
+15                     mm3      0.81000000    122.34200000           # mm3->(c3_c3@naph,c3_c1o2@co2,o2_c1cu1@co2)|CuPW_dabco
+16                  strbnd      0.04700000      0.04700000      0.49900000      1.39400000      1.39400000    127.05000000           # strbnd->(c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph)|benzene
+16                     mm3      0.74100000    127.05000000           # mm3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph)|benzene
+17                     mm3      1.40987668    112.31484504           # mm3->(c3_c2h1@naph,c3_c3@naph,c3_c2h1@naph)|naphtalene
+18                     mm3      0.73800000    110.29000000           # mm3->(h1_c1@dab,c4_c1h2n1@dab,n4_c3cu1@dab)|dabco
+19                     mm3      0.31489094    131.26332391           # mm3->(c3_c3@naph,c3_c2h1@naph,h1_c1@naph)|naphtalene
+20                     mm3      0.85400000    115.56600000           # mm3->(c3_c1o2@co2,c3_c3@ph,c3_c2h1@ph)|CuPW_dabco
+21                     mm3      0.06800000    180.00000000           # mm3->(cu6_cu1n1o4@cu2p,cu6_cu1n1o4@cu2p,n4_c3cu1@dab)|CuPW_dabco
+22                     mm3      0.81000000    122.34200000           # mm3->(c3_c3@ph,c3_c1o2@co2,o2_c1cu1@co2)|CuPW_dabco
+23                     mm3      0.00000000    110.00000000           # mm3->(c4_c1h2n1@dab,n4_c3cu1@dab,cu6_cu1n1o4@cu2p)|CuPW_dabco
+24                     mm3      0.61069720    136.00925114           # mm3->(c3_c2h1@naph,c3_c2h1@naph,c3_c3@naph)|naphtalene
+25                     mm3      0.25723241    158.35524738           # mm3->(c3_c2h1@naph,c3_c3@naph,c3_c3@naph)|naphtalene
+26                 fourier      0.08800000    180.00000000      4.00000000      1.00000000      1.00000000           # fourier->(n4_c3cu1@dab,cu6_cu1n1o4@cu2p,o2_c1cu1@co2)|CuPW_dabco
+27                     mm3      1.36270871    108.28043017           # mm3->(c3_c2h1@naph,c3_c2h1@naph,c3_c2h1@naph)|naphtalene
+
+# Supported dih potentials cos3, cos4
+# cos3:    E(d) = Va/2[1+cos(d)]+Vb/2[1-cos(d)]+Vc/2[1+cos(d)]
+#          Va, Vb and Vc in kcal/mol
+#          cos3 Va Vb Vc
+# cos4:    E(d) = Va/2[1+cos(d)]+Vb/2[1-cos(d)]+Vc/2[1+cos(d)]+Vd/2[1-cos(d)]
+#          Va, Vb, Vd and Vc in kcal/mol
+#          cos4 Va Vb Vc Vd
+dih_type 42
+1                     cos3      0.00000000      0.00000000      0.00000000           # cos3->(n4_c3cu1@dab,cu6_cu1n1o4@cu2p,cu6_cu1n1o4@cu2p,n4_c3cu1@dab)|CuPW_dabco
+2                     cos3      0.00000000      9.00266683      0.00000000           # cos3->(c3_c2h1@naph,c3_c2h1@naph,c3_c3@naph,c3_c2h1@naph)|naphtalene
+3                     cos3      0.49000000      1.23800000      0.21700000           # cos3->(h1_c1@dab,c4_c1h2n1@dab,n4_c3x1@dab,c4_c1h2n1@dab)|dabco
+4                     cos3      0.49000000      1.23800000      0.21700000           # cos3->(h1_c1@dab,c4_c1h2n1@dab,n4_c3cu1@dab,c4_c1h2n1@dab)|dabco
+5                     cos3      0.00000000      0.00000000      0.00000000           # cos3->(o2_c1cu1@co2,cu6_cu1n1o4@cu2p,n4_c3cu1@dab,c4_c1h2n1@dab)|CuPW_dabco
+6                     cos3      0.49294000      0.03400000      2.66000000           # cos3->(c4_c1h2n1@dab,c4_c1h2n1@dab,n4_c3x1@dab,c4_c1h2n1@dab)|dabco
+7                     cos3      0.00000000      3.01000000      1.42600000           # cos3->(n4_c3cu1@dab,c4_c1h2n1@dab,c4_c1h2n1@dab,n4_c3cu1@dab)|dabco
+8                     cos3      0.00000000      4.16487527      0.00000000           # cos3->(c3_c2h1@naph,c3_c2h1@naph,c3_c2h1@naph,c3_c3@naph)|naphtalene
+9                     cos3      0.00000000      5.07300000      0.00000000           # cos3->(h1_c1@ph,c3_c2h1@ph,c3_c3@ph,c3_c1o2@co2)|CuPW_dabco
+10                    cos3      0.00000000      0.00075491      0.00000000           # cos3->(h1_c1@naph,c3_c2h1@naph,c3_c3@naph,c3_c3@naph)|naphtalene
+11                    cos3      0.00000000      6.90266663      0.00000000           # cos3->(c3_c3@naph,c3_c2h1@naph,c3_c2h1@naph,h1_c1@naph)|naphtalene
+12                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(c3_c3@ph,c3_c1o2@co2,o2_c1cu1@co2,cu6_cu1n1o4@cu2p)|CuPW_dabco
+13                    cos3      0.00000000     12.01828294      0.00000000           # cos3->(c3_c2h1@naph,c3_c2h1@naph,c3_c2h1@naph,c3_c2h1@naph)|naphtalene
+14                    cos3      0.00000000      6.98599832      0.00000000           # cos3->(c3_c2h1@naph,c3_c2h1@naph,c3_c2h1@naph,h1_c1@naph)|naphtalene
+15                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(cu6_cu1n1o4@cu2p,cu6_cu1n1o4@cu2p,o2_c1cu1@co2,c3_c1o2@co2)|CuPW_dabco
+16                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(c3_c3@naph,c3_c1o2@co2,o2_c1cu1@co2,cu6_cu1n1o4@cu2p)|CuPW_dabco
+17                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(n4_c3cu1@dab,cu6_cu1n1o4@cu2p,cu6_cu1n1o4@cu2p,o2_c1cu1@co2)|CuPW_dabco
+18                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(c3_c3@naph,c3_c2h1@naph,c3_c3@naph,c3_c1o2@co2)|CuPW_dabco
+19                    cos3      0.00000000      1.96600000      0.00000000           # cos3->(o2_c1cu1@co2,c3_c1o2@co2,c3_c3@naph,c3_c2h1@naph)|CuPW_dabco
+20                    cos3      0.00000000      3.54201832      0.00000000           # cos3->(h1_c1@naph,c3_c2h1@naph,c3_c3@naph,c3_c2h1@naph)|naphtalene
+21                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(c3_c2h1@naph,c3_c2h1@naph,c3_c3@naph,c3_c1o2@co2)|CuPW_dabco
+22                    cos4      0.00000000      0.32100000     -0.14300000     -0.52700000           # cos4->(o2_c1cu1@co2,cu6_cu1n1o4@cu2p,cu6_cu1n1o4@cu2p,o2_c1cu1@co2)|CuPW_dabco
+23                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(c3_c2h1@ph,c3_c2h1@ph,c3_c3@ph,c3_c1o2@co2)|CuPW_dabco
+24                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(n4_c3cu1@dab,cu6_cu1n1o4@cu2p,o2_c1cu1@co2,c3_c1o2@co2)|CuPW_dabco
+25                    cos3      0.49294000      0.03400000      2.66000000           # cos3->(c4_c1h2n1@dab,c4_c1h2n1@dab,n4_c3cu1@dab,c4_c1h2n1@dab)|dabco
+26                    cos3      0.00000000      0.00000000      1.01100000           # cos3->(h1_c1@dab,c4_c1h2n1@dab,c4_c1h2n1@dab,n4_c3cu1@dab)|dabco
+27                    cos3      0.00000000      5.43569055      0.00000000           # cos3->(c3_c2h1@naph,c3_c3@naph,c3_c3@naph,c3_c2h1@naph)|naphtalene
+28                    cos3      0.00000000      0.00004313      0.00000000           # cos3->(c3_c2h1@naph,c3_c2h1@naph,c3_c3@naph,c3_c3@naph)|naphtalene
+29                    cos3      0.00000000      0.00000000      1.01100000           # cos3->(h1_c1@dab,c4_c1h2n1@dab,c4_c1h2n1@dab,n4_c3x1@dab)|dabco
+30                    cos3      0.00000000      6.31600000      0.00000000           # cos3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+31                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(h1_c1@dab,c4_c1h2n1@dab,n4_c3cu1@dab,cu6_cu1n1o4@cu2p)|CuPW_dabco
+32                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(cu6_cu1n1o4@cu2p,cu6_cu1n1o4@cu2p,n4_c3cu1@dab,c4_c1h2n1@dab)|CuPW_dabco
+33                    cos3      0.00000000      1.96600000      0.00000000           # cos3->(o2_c1cu1@co2,c3_c1o2@co2,c3_c3@ph,c3_c2h1@ph)|CuPW_dabco
+34                    cos3      0.00000000      5.97200000      0.00000000           # cos3->(h1_c1@ph,c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+35                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(c4_c1h2n1@dab,c4_c1h2n1@dab,n4_c3cu1@dab,cu6_cu1n1o4@cu2p)|CuPW_dabco
+36                    cos3      0.00000000      5.60400000      0.00000000           # cos3->(o2_c1cu1@co2,c3_c1o2@co2,o2_c1cu1@co2,cu6_cu1n1o4@cu2p)|CuPW_dabco
+37                    cos3      0.00000000      4.37900000      0.00000000           # cos3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph)|benzene
+38                    cos3      0.00000000      3.59615906      0.00000000           # cos3->(h1_c1@naph,c3_c2h1@naph,c3_c2h1@naph,h1_c1@naph)|naphtalene
+39                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(o2_c1cu1@co2,cu6_cu1n1o4@cu2p,o2_c1cu1@co2,c3_c1o2@co2)|CuPW_dabco
+40                    cos3      0.00000000      5.07300000      0.00000000           # cos3->(h1_c1@naph,c3_c2h1@naph,c3_c3@naph,c3_c1o2@co2)|CuPW_dabco
+41                    cos3      0.00000000      3.01000000      1.42600000           # cos3->(n4_c3cu1@dab,c4_c1h2n1@dab,c4_c1h2n1@dab,n4_c3x1@dab)|dabco
+42                    cos3      0.00000000      0.00000000      0.39900000           # cos3->(h1_c1@dab,c4_c1h2n1@dab,c4_c1h2n1@dab,h1_c1@dab)|dabco
+
+# Supported oop potentials harm
+# harm:    E(d) = k/2*(d-d0)**2
+#          k in mdyn/(rad*A), d0 in deg
+#          harm k d0
+# cos4:    E(d) = Va/2[1+cos(d)]+Vb/2[1-cos(d)]+Vc/2[1+cos(d)]+Vd/2[1-cos(d)]
+#          Va, Vb, Vd and Vc in kcal/mol
+#          cos4 Va Vb Vc Vd
+oop_type 9
+1                     harm      0.14200000      0.00000000           # harm->(c3_c1o2@co2,c3_c3@ph,o2_c1cu1@co2,o2_c1cu1@co2)|CuPW_dabco
+2                     harm      0.00000000      0.00000000           # harm->(n4_c3x1@dab,c4_c1h2n1@dab,c4_c1h2n1@dab,c4_c1h2n1@dab)|xxx
+3                     harm      0.00000002      0.00000000           # harm->(c3_c2h1@naph,c3_c2h1@naph,c3_c2h1@naph,h1_c1@naph)|naphtalene
+4                     harm      0.07788658      0.00000000           # harm->(c3_c3@naph,c3_c2h1@naph,c3_c2h1@naph,c3_c3@naph)|naphtalene
+5                     harm      0.00000623      0.00000000           # harm->(c3_c2h1@naph,c3_c2h1@naph,c3_c3@naph,h1_c1@naph)|naphtalene
+6                     harm      0.14200000      0.00000000           # harm->(c3_c1o2@co2,c3_c3@naph,o2_c1cu1@co2,o2_c1cu1@co2)|CuPW_dabco
+7                     harm      0.01900000      0.00000000           # harm->(c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+8                     harm      0.07200000      0.00000000           # harm->(c3_c3@ph,c3_c1o2@co2,c3_c2h1@ph,c3_c2h1@ph)|CuPW_dabco
+9                     harm      0.07200000      0.00000000           # harm->(c3_c3@naph,c3_c1o2@co2,c3_c2h1@naph,c3_c2h1@naph)|CuPW_dabco
+
+# Supported charge types
+# gaussian: q in e-, w in A
+#           gaussian q w 
+cha_type 15
+1                 gaussian      0.80000000      1.16300000           # gaussian->(c3_c1o2@co2)|CuPW_dabco
+2                 gaussian      0.00000000      1.16298600           # gaussian->(c3_c3@naph)|naphtalene
+3                 gaussian      0.00000000      1.16300000           # gaussian->(c3_c3@naph)|CuPW_dabco
+4                 gaussian      0.00000000      1.16300000           # gaussian->(c3_c3@ph)|CuPW_dabco
+5                 gaussian      0.02000000      0.72363870           # gaussian->(h1_c1@dab)|dabco
+6                 gaussian      0.60000000      1.12504570           # gaussian->(n4_c3cu1@dab)|dabco
+7                 gaussian      0.00000000      1.00000000           # gaussian->(hg0_@-1)|fit
+8                 gaussian      0.40000000      2.07330000           # gaussian->(cu6_cu1n1o4@cu2p)|CuPW_dabco
+9                 gaussian     -0.12000000      1.16298600           # gaussian->(c3_c2h1@naph)|naphtalene
+10                gaussian     -0.04000000      1.16298610           # gaussian->(c4_c1h2n1@dab)|dabco
+11                gaussian     -0.12000000      1.16298600           # gaussian->(c3_c2h1@ph)|benzene
+12                gaussian      0.12000000      0.72363800           # gaussian->(h1_c1@ph)|benzene
+13                gaussian     -0.65000000      1.11760000           # gaussian->(o2_c1cu1@co2)|CuPW_dabco
+14                gaussian      0.00000000      1.12504570           # gaussian->(n4_c3x1@dab)|dabco
+15                gaussian      0.12000000      0.72363800           # gaussian->(h1_c1@naph)|naphtalene
+
+# Suppoerted types
+# buck6d: ep in kcal/mol, r0 in A
+#         buck r0 ep
+vdw_type 13
+1                   buck6d      1.96000000      0.05600000           # buck6d->(c3_c2h1@naph)|naphtalene
+2                   buck6d      1.94000000      0.05600000           # buck6d->(c3_c1o2@co2)|CuPW_dabco
+3                   buck6d      3.00000000      0.80000000           # buck6d->(hg0_@-1)|fit
+4                   buck6d      1.96000000      0.05600000           # buck6d->(c3_c3@naph)|naphtalene
+5                   buck6d      2.26000000      0.29600000           # buck6d->(cu6_cu1n1o4@cu2p)|CuPW_dabco
+6                   buck6d      1.50000000      0.02000000           # buck6d->(h1_c1@dab)|dabco
+7                   buck6d      2.04000000      0.02700000           # buck6d->(c4_c1h2n1@dab)|dabco
+8                   buck6d      1.93000000      0.04300000           # buck6d->(n4_c3cu1@dab)|dabco
+9                   buck6d      1.82000000      0.05900000           # buck6d->(o2_c1cu1@co2)|CuPW_dabco
+10                  buck6d      1.93000000      0.04300000           # buck6d->(n4_c3x1@dab)|dabco
+11                  buck6d      1.50000000      0.02000000           # buck6d->(h1_c1@naph)|naphtalene
+12                  buck6d      1.50000000      0.02000000           # buck6d->(h1_c1@ph)|benzene
+13                  buck6d      1.96000000      0.05600000           # buck6d->(c3_c2h1@ph)|benzene
+
+
+chapr_type 0
+
+
+vdwpr_type 0
+
