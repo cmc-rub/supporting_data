@@ -1,0 +1,239 @@
+HASH: 7b27e561-16f0-449f-86a0-2d1b42b4275a
+FF BABAK-FF
+
+vdw12           0.0
+epsrule         geometric
+radfact         1.0
+vdw14           1.0
+coul12          1.0
+cutoff          12.0
+vdwtype         exp6_damped
+chargetype      gaussian
+vdw13           0.0
+radrule         arithmetic
+coul13          1.0
+coul14          1.0
+coreshell       False
+
+# Supported bnd potentials mm3, quartic, morse
+# mm3:     E(r) = 1/2 k(r-r0)^2*[1-2.55(r-r0)+7/12(2.55(r-r0))^2]
+#          r0 in A, k in mdyn/A
+#          mm3 k r0
+# morse:   E(r) = (1/2a^2)*k*[1-e^(-a(r-r0))] with Ed = k/2a^2
+#          r0 in A, k in mdyn/A, Ed in kcal/mol
+#          morse k r Ed
+# quartic: E(r) = 1/2 k(r-r0)^2*[1-k2(r-r0)+k3(k2(r-r0))^2]
+#          r0 in A, k in mdyn/A, k2 in A^-1 and k3 is unitlesl
+#          quartic k r0 k2 k3
+bnd_type 24
+1                      mm3      5.56214402      1.09017983           # mm3->(c3_c2h1@phtalaz,h1_c1@phtalaz)|ldip-9b_pyr
+2                      mm3      4.98063354      1.36110119           # mm3->(n2_c1n1@phtalaz,n2_c1n1@phtalaz)|ldip-9b_pyr
+3                      mm3      6.82745519      1.39497966           # mm3->(c3_c2h1@ph,c3_c2h1@ph)|benzene
+4                      mm3      6.85053479      1.39356961           # mm3->(c3_c2h1@ph,c3_c3@ph)|ZnPW_py
+5                      mm3      5.51305395      1.09178705           # mm3->(c3_c2h1@pyr,h1_c1@pyr)|pyridine
+6                    morse      0.96229141      2.01860318     50.00000000           # morse->(o2_c1zn1@co2,zn6_n1o4zn1@zn2p)|ZnPW_py
+7                      mm3      5.76210909      1.42415416           # mm3->(c3_c3@phtalaz,c3_c3R2@phtalaz)|ldip-9b_pyr
+8                      mm3      4.72366922      1.49775815           # mm3->(c3_c1o2@co2,c3_c3@ph)|ZnPW_py
+9                      mm3      5.38614783      1.09488870           # mm3->(c3_c1h1n1@pyr,h1_c1@pyr)|pyridine
+10                     mm3      6.38984873      1.40733170           # mm3->(c3_c3R2@phtalaz,c3_c3R2@phtalaz)|ldip-9b_pyr
+11                     mm3      7.54007399      1.33610679           # mm3->(c3_c1h1n1@pyr,n3_c2zn1@pyr)|ZnPW_py
+12                     mm3      7.53346999      1.32046551           # mm3->(c3_c1h1n1@phtalaz,n2_c1n1@phtalaz)|ldip-9b_pyr
+13                     mm3      5.13636449      1.47584947           # mm3->(c3_c3@phtalaz,c3_c3@pyr)|ldip-9b_pyr
+14                     mm3      5.42839843      1.09386912           # mm3->(c3_c2h1@ph,h1_c1@ph)|benzene
+15                     mm3      7.88865862      1.28077611           # mm3->(c3_c1o2@co2,o2_c1zn1@co2)|ZnPW_py
+16                     mm3      6.63062274      1.40192282           # mm3->(c3_c2h1@pyr,c3_c3@pyr)|ldip-9b_pyr
+17                     mm3      5.23920516      1.09926975           # mm3->(c4_h4@me,h1_c1@me)|methane
+18                     mm3      1.50504845      2.81928811           # mm3->(zn6_n1o4zn1@zn2p,zn6_n1o4zn1@zn2p)|ZnPW_py
+19                     mm3      5.92099780      1.42106442           # mm3->(c3_c1h1n1@phtalaz,c3_c3R2@phtalaz)|ldip-9b_pyr
+20                   morse      1.21654565      2.03500273     25.00000000           # morse->(n3_c2zn1@pyr,zn6_n1o4zn1@zn2p)|ZnPW_py
+21                     mm3      7.11331340      1.38210951           # mm3->(c3_c2h1@phtalaz,c3_c3@phtalaz)|ldip-9b_pyr
+22                     mm3      6.27685025      1.40591833           # mm3->(c3_c2h1@phtalaz,c3_c2h1@phtalaz)|ldip-9b_pyr
+23                     mm3      5.54072067      1.09051331           # mm3->(c3_c1h1n1@phtalaz,h1_c1@phtalaz)|ldip-9b_pyr
+24                     mm3      6.66796592      1.39399769           # mm3->(c3_c1h1n1@pyr,c3_c2h1@pyr)|pyridine
+
+# Supported ang potentials mm3, fourier, quartic, strbnd
+# mm3:     E(a) = 1/2 k(a-a0)^2*[1-0.014(a-a0)+5.6e-5(a-a0)^2-7e-7(a-a0)^3+2.2e-8(a-a0)^4]
+#          a0 in deg, k in mdyn/(A*rad)
+#          mm3 k a0
+# fourier: E(r) = V/a[1+cos(n*a+a0)]
+#          a0 in deg, V in kcal/mol, n is unitless
+#          fourier V a0 n 1.0 1.0
+# quartic: E(a) = 1/2 k(a-a0)^2*[1-k2(a-a0)+k3(k2(a-a0))^2]
+#          a0 in deg, k in mdyn/(A*rad), k2 in 1/rad, and k3 is unitless
+#          quartic k a0 k2 k3
+# strbnd:  E(r1,r2,a) = kss(r1-r10)(r2-r20)+(a-a0)*[ksb1*(r1-r10)+ksb2(r2-r20)]
+#          r10, r20 in A, a in deg, kss in mdyn/A, ksb1 and ksb2 in mdyn/(rad*A)
+#          strbnd ksb1 ksb2 kss r10 r20 a0
+ang_type 37
+1                      mm3      0.14264147    100.64622446           # mm3->(n3_c2zn1@pyr,zn6_n1o4zn1@zn2p,o2_c1zn1@co2)|ZnPW_py
+2                      mm3      0.62098192    111.11108280           # mm3->(c3_c3@ph,c3_c2h1@ph,h1_c1@ph)|ZnPW_py
+3                   strbnd      0.16851502      0.16851502     -0.30624876      1.28077611      1.28077611    120.06306748           # strbnd->(o2_c1zn1@co2,c3_c1o2@co2,o2_c1zn1@co2)|ZnPW_py
+3                      mm3      2.05123244    120.06306748           # mm3->(o2_c1zn1@co2,c3_c1o2@co2,o2_c1zn1@co2)|ZnPW_py
+4                      mm3      0.51960703    119.69836587           # mm3->(c3_c3@pyr,c3_c2h1@pyr,h1_c1@pyr)|ldip-9b_pyr
+5                      mm3      0.94595491    118.89037608           # mm3->(c3_c2h1@phtalaz,c3_c3@phtalaz,c3_c3R2@phtalaz)|ldip-9b_pyr
+6                      mm3      1.02135793    113.19539091           # mm3->(c3_c1o2@co2,c3_c3@ph,c3_c2h1@ph)|ZnPW_py
+7                      mm3      0.92581373     72.67701576           # mm3->(o2_c1zn1@co2,zn6_n1o4zn1@zn2p,zn6_n1o4zn1@zn2p)|ZnPW_py
+8                      mm3      0.90348299    122.53920167           # mm3->(c3_c2h1@phtalaz,c3_c2h1@phtalaz,c3_c3@phtalaz)|ldip-9b_pyr
+9                      mm3      0.07069712    119.29886153           # mm3->(c3_c1o2@co2,o2_c1zn1@co2,zn6_n1o4zn1@zn2p)|ZnPW_py
+10                     mm3      1.39135641    125.01379876           # mm3->(c3_c3R2@phtalaz,c3_c1h1n1@phtalaz,n2_c1n1@phtalaz)|ldip-9b_pyr
+11                     mm3      0.67336855    115.96616001           # mm3->(h1_c1@phtalaz,c3_c1h1n1@phtalaz,n2_c1n1@phtalaz)|ldip-9b_pyr
+12                     mm3      0.01728241    116.13895288           # mm3->(c3_c1h1n1@pyr,n3_c2zn1@pyr,zn6_n1o4zn1@zn2p)|ZnPW_py
+13                     mm3      1.17261691    118.07550916           # mm3->(c3_c2h1@ph,c3_c2h1@ph,c3_c3@ph)|ZnPW_py
+14                     mm3      0.90939640    121.43051488           # mm3->(c3_c2h1@pyr,c3_c3@pyr,c3_c2h1@pyr)|ldip-9b_pyr
+15                     mm3      1.04819937    110.62197892           # mm3->(c3_c1h1n1@phtalaz,c3_c3R2@phtalaz,c3_c3R2@phtalaz)|ldip-9b_pyr
+16                     mm3      0.00000000      0.00000000           # mm3->(o2_c1zn1@co2,zn6_n1o4zn1@zn2p,o2_c1zn1@co2)|ZnPW_py
+17                     mm3      0.59865585    123.93231353           # mm3->(c3_c3@pyr,c3_c3@phtalaz,c3_c3R2@phtalaz)|ldip-9b_pyr
+18                     mm3      0.77353096    117.99668515           # mm3->(c3_c2h1@pyr,c3_c3@pyr,c3_c3@phtalaz)|ldip-9b_pyr
+19                     mm3      0.72303719    113.41682955           # mm3->(h1_c1@pyr,c3_c1h1n1@pyr,n3_c2zn1@pyr)|ZnPW_py
+20                     mm3      0.62333586    121.69321488           # mm3->(c3_c2h1@phtalaz,c3_c3@phtalaz,c3_c3@pyr)|ldip-9b_pyr
+21                     mm3      0.93856890    119.95071305           # mm3->(c3_c1h1n1@pyr,n3_c2zn1@pyr,c3_c1h1n1@pyr)|ZnPW_py
+22                     mm3      0.50990024    119.55293023           # mm3->(c3_c1h1n1@pyr,c3_c2h1@pyr,h1_c1@pyr)|pyridine
+23                     mm3      1.34465202    122.28416061           # mm3->(c3_c2h1@pyr,c3_c1h1n1@pyr,n3_c2zn1@pyr)|ZnPW_py
+24                     mm3      0.00000000      0.00000000           # mm3->(n3_c2zn1@pyr,zn6_n1o4zn1@zn2p,zn6_n1o4zn1@zn2p)|ZnPW_py
+25                     mm3      1.42437576    109.60464725           # mm3->(c3_c3@ph,c3_c1o2@co2,o2_c1zn1@co2)|ZnPW_py
+26                     mm3      0.64910875    114.68476060           # mm3->(c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+27                     mm3      0.30522892    127.08603800           # mm3->(c3_c2h1@phtalaz,c3_c2h1@phtalaz,h1_c1@phtalaz)|ldip-9b_pyr
+28                     mm3      1.15377285    115.73593077           # mm3->(c3_c2h1@ph,c3_c3@ph,c3_c2h1@ph)|ZnPW_py
+29                     mm3      0.45343601    120.30350220           # mm3->(c3_c2h1@pyr,c3_c1h1n1@pyr,h1_c1@pyr)|pyridine
+30                     mm3      0.50911712    109.47000000           # mm3->(h1_c1@me,c4_h4@me,h1_c1@me)|methane
+31                     mm3      0.84252284    118.75936987           # mm3->(c3_c3@phtalaz,c3_c3R2@phtalaz,c3_c3R2@phtalaz)|ldip-9b_pyr
+32                     mm3      1.28696297    118.98403860           # mm3->(c3_c1h1n1@phtalaz,n2_c1n1@phtalaz,n2_c1n1@phtalaz)|ldip-9b_pyr
+33                     mm3      0.44896191    117.64836659           # mm3->(c3_c3R2@phtalaz,c3_c1h1n1@phtalaz,h1_c1@phtalaz)|ldip-9b_pyr
+34                     mm3      0.93744228    121.73393357           # mm3->(c3_c1h1n1@phtalaz,c3_c3R2@phtalaz,c3_c3@phtalaz)|ldip-9b_pyr
+35                     mm3      0.98631728    122.91153277           # mm3->(c3_c1h1n1@pyr,c3_c2h1@pyr,c3_c3@pyr)|ldip-9b_pyr
+36                     mm3      0.52012142    122.81136414           # mm3->(c3_c3@phtalaz,c3_c2h1@phtalaz,h1_c1@phtalaz)|ldip-9b_pyr
+
+# Supported dih potentials cos3, cos4
+# cos3:    E(d) = Va/2[1+cos(d)]+Vb/2[1-cos(d)]+Vc/2[1+cos(d)]
+#          Va, Vb and Vc in kcal/mol
+#          cos3 Va Vb Vc
+# cos4:    E(d) = Va/2[1+cos(d)]+Vb/2[1-cos(d)]+Vc/2[1+cos(d)]+Vd/2[1-cos(d)]
+#          Va, Vb, Vd and Vc in kcal/mol
+#          cos4 Va Vb Vc Vd
+dih_type 51
+1                     cos3      0.00000000      4.68126415      0.00000000           # cos3->(c3_c1h1n1@phtalaz,c3_c3R2@phtalaz,c3_c3R2@phtalaz,c3_c3@phtalaz)|ldip-9b_pyr
+2                     cos3      0.00000000      5.80940998      0.00000000           # cos3->(c3_c2h1@ph,c3_c2h1@ph,c3_c3@ph,c3_c1o2@co2)|ZnPW_py
+3                     cos3      0.00000000      3.55596802      0.00000000           # cos3->(c3_c3@phtalaz,c3_c2h1@phtalaz,c3_c2h1@phtalaz,h1_c1@phtalaz)|ldip-9b_pyr
+4                     cos3      0.00000000      0.68181446      0.00000000           # cos3->(c3_c2h1@phtalaz,c3_c3@phtalaz,c3_c3@pyr,c3_c2h1@pyr)|ldip-9b_pyr
+5                     cos3      0.00000000      6.10087133      0.00000000           # cos3->(n2_c1n1@phtalaz,c3_c1h1n1@phtalaz,c3_c3R2@phtalaz,c3_c3R2@phtalaz)|ldip-9b_pyr
+6                     cos3      0.00000000      6.73892094      0.00000000           # cos3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+7                     cos3      0.00000000      2.46422056      0.00000000           # cos3->(c3_c3R2@phtalaz,c3_c3@phtalaz,c3_c3@pyr,c3_c2h1@pyr)|ldip-9b_pyr
+8                     cos4      0.00000000      0.00000000      0.00000000      2.55162017           # cos4->(o2_c1zn1@co2,zn6_n1o4zn1@zn2p,zn6_n1o4zn1@zn2p,o2_c1zn1@co2)|ZnPW_py
+9                     cos3      0.00000000      4.22531547      0.00000000           # cos3->(h1_c1@pyr,c3_c1h1n1@pyr,c3_c2h1@pyr,h1_c1@pyr)|pyridine
+10                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(n3_c2zn1@pyr,zn6_n1o4zn1@zn2p,zn6_n1o4zn1@zn2p,n3_c2zn1@pyr)|ZnPW_py
+11                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(c3_c3@ph,c3_c1o2@co2,o2_c1zn1@co2,zn6_n1o4zn1@zn2p)|ZnPW_py
+12                    cos3      0.00000000      1.89832107      0.00000000           # cos3->(h1_c1@pyr,c3_c1h1n1@pyr,n3_c2zn1@pyr,zn6_n1o4zn1@zn2p)|ZnPW_py
+13                    cos3      0.00000000      4.17570005      0.00000000           # cos3->(h1_c1@pyr,c3_c1h1n1@pyr,c3_c2h1@pyr,c3_c2h1@pyr)|pyridine
+14                    cos3      0.00000000      9.15747738      0.00000000           # cos3->(c3_c1h1n1@pyr,c3_c2h1@pyr,c3_c2h1@pyr,c3_c2h1@pyr)|pyridine
+15                    cos3      0.00000000      1.35993829      0.00000000           # cos3->(c3_c2h1@phtalaz,c3_c2h1@phtalaz,c3_c3@phtalaz,c3_c3R2@phtalaz)|ldip-9b_pyr
+16                    cos3      0.00000000      2.07671446      0.00000000           # cos3->(h1_c1@phtalaz,c3_c1h1n1@phtalaz,n2_c1n1@phtalaz,n2_c1n1@phtalaz)|ldip-9b_pyr
+17                    cos3      0.00000000      6.77205849      0.00000000           # cos3->(h1_c1@ph,c3_c2h1@ph,c3_c3@ph,c3_c1o2@co2)|ZnPW_py
+18                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(c3_c1o2@co2,o2_c1zn1@co2,zn6_n1o4zn1@zn2p,zn6_n1o4zn1@zn2p)|ZnPW_py
+19                    cos3      0.00000000      3.21380894      0.00000000           # cos3->(c3_c3@pyr,c3_c3@phtalaz,c3_c3R2@phtalaz,c3_c3R2@phtalaz)|ldip-9b_pyr
+20                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(c3_c1o2@co2,o2_c1zn1@co2,zn6_n1o4zn1@zn2p,n3_c2zn1@pyr)|ZnPW_py
+21                    cos3      0.00000000      6.04310818      0.00000000           # cos3->(n2_c2@pyr,c3_c1h1n1@pyr,c3_c2h1@pyr,c3_c2h1@pyr)|pyridine
+22                    cos3      0.00000000      1.47486539      0.00000000           # cos3->(c3_c3@phtalaz,c3_c3R2@phtalaz,c3_c3R2@phtalaz,c3_c3@phtalaz)|ldip-9b_pyr
+23                    cos3      0.00000000      2.73662040      0.00000000           # cos3->(n2_c2@pyr,c3_c1h1n1@pyr,c3_c2h1@pyr,h1_c1@pyr)|pyridine
+24                    cos3      0.00000000      5.00928361      0.00000000           # cos3->(o2_c1zn1@co2,c3_c1o2@co2,o2_c1zn1@co2,zn6_n1o4zn1@zn2p)|ZnPW_py
+25                    cos3      0.00000000      0.59993787      0.00000000           # cos3->(c3_c2h1@phtalaz,c3_c3@phtalaz,c3_c3R2@phtalaz,c3_c1h1n1@phtalaz)|ldip-9b_pyr
+26                    cos3      0.00000000      2.43845654      0.00000000           # cos3->(c3_c3@phtalaz,c3_c2h1@phtalaz,c3_c2h1@phtalaz,c3_c3@phtalaz)|ldip-9b_pyr
+27                    cos3      0.00000000      4.30109856      0.00000000           # cos3->(c3_c2h1@phtalaz,c3_c2h1@phtalaz,c3_c3@phtalaz,c3_c3@pyr)|ldip-9b_pyr
+28                    cos3      0.00000000      7.12136361      0.00000000           # cos3->(c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph,c3_c2h1@ph)|benzene
+29                    cos3      0.00000000      5.21292249      0.00000000           # cos3->(c3_c2h1@phtalaz,c3_c3@phtalaz,c3_c3R2@phtalaz,c3_c3R2@phtalaz)|ldip-9b_pyr
+30                    cos3      0.00000000      9.54541796      0.00000000           # cos3->(h1_c1@pyr,c3_c1h1n1@pyr,n2_c2@pyr,c3_c1h1n1@pyr)|pyridine
+31                    cos3      0.00000000      6.44569771      0.00000000           # cos3->(c3_c3@pyr,c3_c3@phtalaz,c3_c3R2@phtalaz,c3_c1h1n1@phtalaz)|ldip-9b_pyr
+32                    cos3      0.00000000      1.28072265      0.00000000           # cos3->(c3_c1h1n1@phtalaz,n2_c1n1@phtalaz,n2_c1n1@phtalaz,c3_c1h1n1@phtalaz)|ldip-9b_pyr
+33                    cos3      0.00000000      1.98813237      0.00000000           # cos3->(c3_c1h1n1@phtalaz,c3_c3R2@phtalaz,c3_c3R2@phtalaz,c3_c1h1n1@phtalaz)|ldip-9b_pyr
+34                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(c3_c1o2@co2,o2_c1zn1@co2,zn6_n1o4zn1@zn2p,o2_c1zn1@co2)|ZnPW_py
+35                    cos3      0.00000000      0.42539568      0.00000000           # cos3->(c3_c3R2@phtalaz,c3_c1h1n1@phtalaz,n2_c1n1@phtalaz,n2_c1n1@phtalaz)|ldip-9b_pyr
+36                    cos3      0.00000000      3.99774651      0.00000000           # cos3->(h1_c1@ph,c3_c2h1@ph,c3_c2h1@ph,h1_c1@ph)|benzene
+37                    cos3      0.00000000      1.92206380      0.00000000           # cos3->(h1_c1@phtalaz,c3_c2h1@phtalaz,c3_c3@phtalaz,c3_c3@pyr)|ldip-9b_pyr
+38                    cos3      0.00000000      2.36225233      0.00000000           # cos3->(h1_c1@phtalaz,c3_c1h1n1@phtalaz,c3_c3R2@phtalaz,c3_c3@phtalaz)|ldip-9b_pyr
+39                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(c3_c1h1n1@pyr,n3_c2zn1@pyr,zn6_n1o4zn1@zn2p,zn6_n1o4zn1@zn2p)|ZnPW_py
+40                    cos3      0.00000000      3.41185581      0.00000000           # cos3->(n2_c1n1@phtalaz,c3_c1h1n1@phtalaz,c3_c3R2@phtalaz,c3_c3@phtalaz)|ldip-9b_pyr
+41                    cos3      0.00000000      9.09338752      0.00000000           # cos3->(c3_c2h1@pyr,c3_c1h1n1@pyr,n2_c2@pyr,c3_c1h1n1@pyr)|pyridine
+42                    cos3      0.00000000      2.43467792      0.00000000           # cos3->(h1_c1@phtalaz,c3_c1h1n1@phtalaz,c3_c3R2@phtalaz,c3_c3R2@phtalaz)|ldip-9b_pyr
+43                    cos3      0.00000000      5.99158746      0.00000000           # cos3->(c3_c2h1@pyr,c3_c2h1@pyr,c3_c2h1@pyr,h1_c1@pyr)|pyridine
+44                    cos3      0.00000000      1.47210000      0.00000000           # cos3->(o2_c1zn1@co2,c3_c1o2@co2,c3_c3@ph,c3_c2h1@ph)|ZnPW_py
+45                    cos3      0.00000000      5.13531721      0.00000000           # cos3->(h1_c1@phtalaz,c3_c2h1@phtalaz,c3_c3@phtalaz,c3_c3R2@phtalaz)|ldip-9b_pyr
+46                    cos3      0.00000000      2.67596903      0.00000000           # cos3->(c3_c1h1n1@pyr,c3_c2h1@pyr,c3_c3@pyr,c3_c3@phtalaz)|ldip-9b_pyr
+47                    cos3      0.00000000      0.12528552      0.00000000           # cos3->(h1_c1@pyr,c3_c2h1@pyr,c3_c3@pyr,c3_c3@phtalaz)|ldip-9b_pyr
+48                    cos4      0.00000000      0.00000000      0.00000000      0.13923400           # cos4->(c3_c1h1n1@pyr,n3_c2zn1@pyr,zn6_n1o4zn1@zn2p,o2_c1zn1@co2)|ZnPW_py
+49                    cos3      0.00000000      0.00000000      0.00000000           # cos3->(n3_c2zn1@pyr,zn6_n1o4zn1@zn2p,zn6_n1o4zn1@zn2p,o2_c1zn1@co2)|ZnPW_py
+50                    cos3      0.00000000      4.01710061      0.00000000           # cos3->(c3_c2h1@pyr,c3_c1h1n1@pyr,n3_c2zn1@pyr,zn6_n1o4zn1@zn2p)|ZnPW_py
+51                    cos3      0.00000000      2.67129684      0.00000000           # cos3->(h1_c1@phtalaz,c3_c2h1@phtalaz,c3_c2h1@phtalaz,h1_c1@phtalaz)|ldip-9b_pyr
+
+# Supported oop potentials harm
+# harm:    E(d) = k/2*(d-d0)**2
+#          k in mdyn/(rad*A), d0 in deg
+#          harm k d0
+# cos4:    E(d) = Va/2[1+cos(d)]+Vb/2[1-cos(d)]+Vc/2[1+cos(d)]+Vd/2[1-cos(d)]
+#          Va, Vb, Vd and Vc in kcal/mol
+#          cos4 Va Vb Vc Vd
+oop_type 11
+1                     harm      0.00721975      0.00000000           # harm->(c3_c3@pyr,c3_c2h1@pyr,c3_c2h1@pyr,c3_c3@phtalaz)|ldip-9b_pyr
+2                     harm      0.12774443      0.00000000           # harm->(c3_c1h1n1@phtalaz,c3_c3R2@phtalaz,h1_c1@phtalaz,n2_c1n1@phtalaz)|ldip-9b_pyr
+3                     harm      0.26579276      0.00000000           # harm->(c3_c1o2@co2,c3_c3@ph,o2_c1zn1@co2,o2_c1zn1@co2)|ZnPW_py
+4                     harm      0.07247047      0.00000000           # harm->(c3_c1h1n1@pyr,c3_c2h1@pyr,h1_c1@pyr,n3_c2zn1@pyr)|ZnPW_py
+5                     harm      0.29399167      0.00000000           # harm->(c3_c3@phtalaz,c3_c2h1@phtalaz,c3_c3@pyr,c3_c3R2@phtalaz)|ldip-9b_pyr
+6                     harm      0.02999581      0.00000000           # harm->(c3_c2h1@pyr,c3_c1h1n1@pyr,c3_c2h1@pyr,h1_c1@pyr)|pyridine
+7                     harm      0.00053913      0.00000000           # harm->(n3_c2zn1@pyr,c3_c1h1n1@pyr,c3_c1h1n1@pyr,zn6_n1o4zn1@zn2p)|ZnPW_py
+8                     harm      0.06392884      0.00000000           # harm->(c3_c3@ph,c3_c1o2@co2,c3_c2h1@ph,c3_c2h1@ph)|ZnPW_py
+9                     harm      0.01838325      0.00000000           # harm->(c3_c2h1@phtalaz,c3_c2h1@phtalaz,c3_c3@phtalaz,h1_c1@phtalaz)|ldip-9b_pyr
+10                    harm      0.04392694      0.00000000           # harm->(c3_c2h1@ph,c3_c2h1@ph,c3_c3@ph,h1_c1@ph)|ZnPW_py
+11                    harm      0.00726220      0.00000000           # harm->(c3_c3R2@phtalaz,c3_c1h1n1@phtalaz,c3_c3@phtalaz,c3_c3R2@phtalaz)|ldip-9b_pyr
+
+# Supported charge types
+# gaussian: q in e-, w in A
+#           gaussian q w 
+cha_type 19
+1                 gaussian     -0.30963900      1.12500000           # gaussian->(n2_c1n1@phtalaz)|ldip-9b_pyr
+2                 gaussian      0.15000000      0.72363800           # gaussian->(h1_c1@me)|methane
+3                 gaussian     -0.60000000      1.16298600           # gaussian->(c4_h4@me)|methane
+4                 gaussian     -0.78988100      1.11755300           # gaussian->(o2_c1zn1@co2)|ZnPW_py
+5                 gaussian      0.13364100      0.72363800           # gaussian->(h1_c1@ph)|benzene
+6                 gaussian     -0.18563700      1.12500000           # gaussian->(n3_c2zn1@pyr)|ZnPW_py
+7                 gaussian      1.17937300      2.07330000           # gaussian->(zn6_n1o4zn1@zn2p)|ZnPW_py
+8                 gaussian      0.99438800      1.16298600           # gaussian->(c3_c1o2@co2)|ZnPW_py
+9                 gaussian     -0.13364100      1.16298600           # gaussian->(c3_c2h1@ph)|benzene
+10                gaussian      0.28113300      1.16298600           # gaussian->(c3_c3R2@phtalaz)|ldip-9b_pyr
+11                gaussian     -0.12315800      1.16298600           # gaussian->(c3_c3@ph)|ZnPW_py
+12                gaussian      0.11151000      0.72363800           # gaussian->(h1_c1@pyr)|pyridine
+13                gaussian      0.16643400      1.16298600           # gaussian->(c3_c3@pyr)|ldip-9b_pyr
+14                gaussian      0.13447400      1.16298600           # gaussian->(c3_c1h1n1@phtalaz)|ldip-9b_pyr
+15                gaussian      0.07799600      1.16298600           # gaussian->(c3_c1h1n1@pyr)|pyridine
+16                gaussian     -0.09673800      1.16298600           # gaussian->(c3_c2h1@pyr)|pyridine
+17                gaussian     -0.47462300      1.16298600           # gaussian->(c3_c3@phtalaz)|ldip-9b_pyr
+18                gaussian      0.07290500      1.16298600           # gaussian->(c3_c2h1@phtalaz)|ldip-9b_pyr
+19                gaussian      0.07204400      0.72363800           # gaussian->(h1_c1@phtalaz)|ldip-9b_pyr
+
+# Suppoerted types
+# buck6d: ep in kcal/mol, r0 in A
+#         buck r0 ep
+vdw_type 19
+1                   buck6d      1.96000000      0.05600000           # buck6d->(c3_c2h1@ph)|benzene
+2                   buck6d      1.96000000      0.05600000           # buck6d->(c3_c2h1@pyr)|pyridine
+3                   buck6d      2.29000000      0.76000000           # buck6d->(zn6_n1o4zn1@zn2p)|ZnPW_py
+4                   buck6d      1.96000000      0.05600000           # buck6d->(c3_c1h1n1@phtalaz)|ldip-9b_pyr
+5                   buck6d      1.93000000      0.04300000           # buck6d->(n3_c2zn1@pyr)|ZnPW_py
+6                   buck6d      1.96000000      0.05600000           # buck6d->(c3_c1h1n1@pyr)|pyridine
+7                   buck6d      2.04000000      0.02700000           # buck6d->(c4_h4@me)|methane
+8                   buck6d      1.96000000      0.05600000           # buck6d->(c3_c2h1@phtalaz)|ldip-9b_pyr
+9                   buck6d      1.50000000      0.02000000           # buck6d->(h1_c1@me)|methane
+10                  buck6d      1.82000000      0.05900000           # buck6d->(o2_c1zn1@co2)|ZnPW_py
+11                  buck6d      1.50000000      0.02000000           # buck6d->(h1_c1@pyr)|pyridine
+12                  buck6d      1.96000000      0.05600000           # buck6d->(c3_c3@phtalaz)|ldip-9b_pyr
+13                  buck6d      1.50000000      0.02000000           # buck6d->(h1_c1@phtalaz)|ldip-9b_pyr
+14                  buck6d      1.50000000      0.02000000           # buck6d->(h1_c1@ph)|benzene
+15                  buck6d      1.96000000      0.05600000           # buck6d->(c3_c3R2@phtalaz)|ldip-9b_pyr
+16                  buck6d      1.93000000      0.04300000           # buck6d->(n2_c1n1@phtalaz)|ldip-9b_pyr
+17                  buck6d      1.96000000      0.05600000           # buck6d->(c3_c3@ph)|ZnPW_py
+18                  buck6d      1.96000000      0.05600000           # buck6d->(c3_c3@pyr)|ldip-9b_pyr
+19                  buck6d      1.96000000      0.05600000           # buck6d->(c3_c1o2@co2)|ZnPW_py
+
+
+chapr_type 0
+
+
+vdwpr_type 0
+
